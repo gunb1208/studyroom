@@ -19,5 +19,11 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDao.selectAll();
 	}
+
+	@Override
+	public void join(MemberDomain memberDomain) {
+
+		memberDao.insert(memberDomain);
+	}
 	
 }

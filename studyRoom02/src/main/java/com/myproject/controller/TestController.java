@@ -24,6 +24,13 @@ public class TestController {
 		List<MemberDomain> domains = memberService.selectAll();
 		
 		return domains;
-		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

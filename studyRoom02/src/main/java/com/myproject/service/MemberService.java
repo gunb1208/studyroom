@@ -8,4 +8,6 @@ public interface MemberService {
 	
 	List<MemberDomain> selectAll();
 	
+	void join(MemberDomain memberDomain);
+	
 }

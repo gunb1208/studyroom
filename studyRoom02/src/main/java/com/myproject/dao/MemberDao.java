@@ -11,4 +11,5 @@ public interface MemberDao {
 	
 	public List<MemberDomain> selectAll();
 	
+	void insert(MemberDomain memberDomain);
 }

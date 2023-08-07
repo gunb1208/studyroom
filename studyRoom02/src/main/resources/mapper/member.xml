@@ -6,4 +6,8 @@
     <select id="selectAll" resultType="MemberDomain">
         SELECT * FROM member
     </select>
+    
+    <insert id="insert">
+    	INSERT INTO MEMBER (USERNO, USERID, USERPW, USERNAME, TEL, EMAIL) VALUES (SEQ_MEMBER.NEXTVAL, #{userId}, #{userPw}, #{userName}, #{tel}, #{email})
+    </insert>
 </mapper>
