@@ -1,10 +1,15 @@
 package com.myproject.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myproject.domain.MemberDomain;
@@ -20,6 +25,16 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@GetMapping("/test")
+	public void test() {
+		
+	}
+	
+	@GetMapping("/login")
+	public void loginInput(){
+		
+	}
+	
 	@GetMapping("/join")
 	public void join() {
 		
@@ -34,15 +49,20 @@ public class MemberController {
 		return "redirect:/member/login";
 	}
 	
-	@GetMapping("/login")
-	public void loginInput(){
-		
+	@RequestMapping("/idcheck")
+	@ResponseBody
+	public Map<Object, Object> idcheck(@RequestBody MemberDomain memberDomain) {
+		log.info(memberDomain); 
+		int count = 0;
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		 
+		count = memberService.idChk(memberDomain);
+		map.put("cnt", count);
+		 
+		return map;
 	}
 	
-	@GetMapping("/test")
-	public void test() {
-		
-	}
+	
 	
 	
 	

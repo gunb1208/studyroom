@@ -70,10 +70,10 @@
 		               <button class="btn btn-primary btn-block my-3" type="submit" id="signUp">가입하기 </button>
 		            </div>
 		        </div>
-		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+		    <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
 		</form>
 		<div style="text-align: center;">
-		   <p class="mediuen">ZAKSAL의 회원이십니까? <a href="${pageContext.request.contextPath}/member/login">로그인 하기</a></p>
+		   <p class="mediuen">독서실의 회원이십니까? <a href="${pageContext.request.contextPath}/member/login">로그인 하기</a></p>
 		</div>
 <jsp:include page="../includes/footer.jsp" />
 
@@ -89,9 +89,9 @@
 		    var eng = id.search(/[a-z]/ig);
 			var csrf = '${_csrf.headerName}';
 			var csrfToken = "${_csrf.token}";
-			$(document).ajaxSend(function(e, xhr) {
+			/* $(document).ajaxSend(function(e, xhr) {
 				xhr.setRequestHeader(csrf, csrfToken);
-			})
+			}) */
 	        $.ajax({
 	            async: true,
 	            type : 'POST',

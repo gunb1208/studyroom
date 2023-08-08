@@ -23,11 +23,11 @@
 			        <table class="table table-boardered mt-5">
 			            <tr>
 			                <th>아이디</th>
-			                <td><input class="form-control" name="username" type="text" placeholder="id"></td>     
+			                <td><input class="form-control" name="userid" type="text" placeholder="id"></td>     
 			            </tr>
 			            <tr>
 			                <th>패스워드</th>
-			                <td><input class="form-control" name="password" type="password" placeholder="password"></td>      
+			                <td><input class="form-control" name="pw" type="password" placeholder="password"></td>      
 			            </tr>
 			            <tr>
 			                <td colspan="2">
@@ -38,7 +38,7 @@
 			        <div id="naver_id_login" style="text-align:center"><a href="${url}">
 					<img src="${pageContext.request.contextPath}/resources/images/btnG_perfect.png"/></a></div>
 					<br>
-			        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+			        <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
 			    </form>
 			    <p class="mediuen">독서실에 가입하고 여러 혜택을 누리시겠습니까? <a href="${pageContext.request.contextPath}/member/join">회원가입 하기</a></p>
 		    </div>
