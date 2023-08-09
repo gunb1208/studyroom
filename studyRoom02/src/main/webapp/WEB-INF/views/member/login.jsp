@@ -19,15 +19,15 @@
 			</div>
 	        <div class="col-5 pt-5 mt-5">
 	<!--         <div class="col-lg-4 mt-5"> -->
-				<form action="${pageContext.request.contextPath}/login" method="post">
+				<form action="/login" method="post">
 			        <table class="table table-boardered mt-5">
 			            <tr>
 			                <th>아이디</th>
-			                <td><input class="form-control" name="userid" type="text" placeholder="id"></td>     
+			                <td><input class="form-control" name="username" type="text" placeholder="id"></td>     
 			            </tr>
 			            <tr>
 			                <th>패스워드</th>
-			                <td><input class="form-control" name="pw" type="password" placeholder="password"></td>      
+			                <td><input class="form-control" name="password" type="password" placeholder="password"></td>      
 			            </tr>
 			            <tr>
 			                <td colspan="2">

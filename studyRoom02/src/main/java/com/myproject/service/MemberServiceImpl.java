@@ -20,8 +20,8 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	MemberDao memberDao;
 
-	@Autowired
-	private PasswordEncoder encoder;
+//	@Autowired
+//	private PasswordEncoder encoder;
 	
 	
 	
@@ -35,21 +35,21 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void join(MemberDomain memberDomain) {
 		
-		AuthDomain authDomain = new AuthDomain();
-		
-		log.info("service register..." + memberDomain);
-		
-		String encodePw = encoder.encode(memberDomain.getUserPw());
-		memberDomain.setUserPw(encodePw);
-
-		memberDao.insert(memberDomain);
-		
-		// 회원 번호 조회
-		int userNo = memberDao.findUserNoBy(memberDomain.getUserId());
-		authDomain.setUserNo(userNo);
-		
-		// 회원 권한 입력
-		memberDao.insertAuth(authDomain);
+//		AuthDomain authDomain = new AuthDomain();
+//		
+//		log.info("service register..." + memberDomain);
+//		
+//		String encodePw = encoder.encode(memberDomain.getUserPw());
+//		memberDomain.setUserPw(encodePw);
+//
+//		memberDao.insert(memberDomain);
+//		
+//		// 회원 번호 조회
+//		int userNo = memberDao.findUserNoBy(memberDomain.getUserId());
+//		authDomain.setUserNo(userNo);
+//		
+//		// 회원 권한 입력
+//		memberDao.insertAuth(authDomain);
 		
 	}
 
