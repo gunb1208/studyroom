@@ -88,10 +88,10 @@ public class SecurityConfig {
 //
 //
     //    해시코드로 암호화 처리
-//    @Bean
-//    public PasswordEncoder passwordEncoder(){
-//        return  new BCryptPasswordEncoder();
-//    }
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return  new BCryptPasswordEncoder();
+    }
 //
 //    //     정적자원들은 스프링시큐리티 적용에서 제외
 //    @Bean
@@ -116,21 +116,25 @@ public class SecurityConfig {
 //    }
 	
 	
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable().cors().disable()
-                .authorizeHttpRequests(request -> request
-                	.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .anyRequest().authenticated()	// 어떠한 요청이라도 인증필요
-                )
-                .formLogin(login -> login	// form 방식 로그인 사용
-                        .defaultSuccessUrl("/member/", true)	// 성공 시 dashboard로
-                        .permitAll()	// 대시보드 이동이 막히면 안되므로 얘는 허용
-                )
-                .logout(withDefaults());	// 로그아웃은 기본설정으로 (/logout으로 인증해제)
+	 @Bean
+	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	        http.csrf().disable().cors().disable()
+	                .authorizeHttpRequests(request -> request
+	                        .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+	                        .anyRequest().authenticated()
+	                )
+	                .formLogin(login -> login
+	                        .loginPage("/member/login")	// [A] 커스텀 로그인 페이지 지정
+	                        .loginProcessingUrl("/member/login")	// [B] submit 받을 url
+	                        .usernameParameter("username1")	// [C] submit할 아이디
+	                        .passwordParameter("password1")	// [D] submit할 비밀번호
+	                        .defaultSuccessUrl("/member/", true)
+	                        .permitAll()
+	                )
+	                .logout(withDefaults());
 
-        return http.build();
-    }
+	        return http.build();
+	    }
     
 
 }

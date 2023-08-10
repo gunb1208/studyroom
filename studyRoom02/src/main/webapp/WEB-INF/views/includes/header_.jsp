@@ -62,7 +62,7 @@
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/zaksal">독서실 소개</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
-							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
+							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/reg/seat">좌석등록/이용</a></li>
 							<li class="main_nav_item drop-down dropdown-toggle" data-toggle="dropdown"><a href="#">커뮤니티</a> <!-- 드롭다운으로 사물함/ 좌석 -->
 							<li class="dropdown-menu">
 								<a class="dropdown-item" href="${pageContext.request.contextPath}/board/list?category=1">공지사항</a>
@@ -93,7 +93,7 @@
 						<button class="dropdown-item">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>로그아웃
                         </button>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                        <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
 					</form>
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/member/pwCheck"> 
 						<i class="fas fa-user-alt-slash fa-sm fa-fw mr-2 text-gray-400"></i>탈퇴
@@ -124,7 +124,7 @@
 					<li class="menu_item menu_mm"><a href="#">ZAKSAL 소개</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
-					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
+					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/reg/seat">좌석등록/이용</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/board/list?category=1">공지사항</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/board/list?category=2">Q&A</a></li>
 					<sec:authorize access="hasRole('ADMIN')">

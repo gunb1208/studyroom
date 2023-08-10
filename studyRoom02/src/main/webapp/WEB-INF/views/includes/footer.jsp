@@ -42,7 +42,7 @@
 								<li class="footer_list_item"><a href="#">독서실 소개</a></li>
 								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
-								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
+								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/reg/seat">좌석등록/이용</a></li>
 								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/board/list">커뮤니티</a></li>
 							</ul>
 						</div>
