@@ -23,11 +23,11 @@
 			        <table class="table table-boardered mt-5">
 			            <tr>
 			                <th>아이디</th>
-			                <td><input class="form-control" name="username1" type="text" placeholder="id"></td>     
+			                <td><input class="form-control" name="userId" id="userId" type="text" placeholder="id"></td>     
 			            </tr>
 			            <tr>
 			                <th>패스워드</th>
-			                <td><input class="form-control" name="password1" type="password" placeholder="password"></td>      
+			                <td><input class="form-control" name="userPw" id="userPw" type="password" placeholder="password"></td>      
 			            </tr>
 			            <tr>
 			                <td colspan="2">

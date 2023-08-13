@@ -39,7 +39,7 @@
 						<div class="footer_column_title">메뉴</div>
 						<div class="footer_column_content">
 							<ul>
-								<li class="footer_list_item"><a href="#">독서실 소개</a></li>
+								<li class="footer_list_item"><a href="#">YS독서실 소개</a></li>
 								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
 								<li class="footer_list_item"><a href="${pageContext.request.contextPath}/reg/seat">좌석등록/이용</a></li>

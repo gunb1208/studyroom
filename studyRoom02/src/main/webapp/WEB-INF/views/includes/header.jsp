@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%-- <%@ taglib uri = "http://www.springframework.org/security/tags" prefix="sec" %> --%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,26 +43,26 @@
 			<!-- Main Navigation -->
 			<nav class="main_nav_container">
 				<div class="main_nav">
-					<sec:authorize access="!hasRole('ADMIN')">
+				<c:choose>
+				<c:when test="${memberAuth eq 'ROLE_MEMBER'}">
 						<ul class="main_nav_list mr-5">
-							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/zaksal">ZAKSAL 소개</a></li>
+							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/ysStudyRoom">YS독서실 소개</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
-							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
+							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/reg/seat">좌석등록/이용</a></li>
 							<li class="main_nav_item drop-down dropdown-toggle" data-toggle="dropdown"><a href="#">커뮤니티</a> <!-- 드롭다운으로 사물함/ 좌석 -->
 							<li class="dropdown-menu">
 								<a class="dropdown-item" href="${pageContext.request.contextPath}/board/list?category=1">공지사항</a>
 								<a class="dropdown-item" href="${pageContext.request.contextPath}/board/list?category=2">Q&A</a>
 							</li>
 						</ul>
-					</sec:authorize>
-	
-					<sec:authorize access="hasRole('ADMIN')">
+				</c:when>
+				<c:otherwise>
 						<ul class="main_nav_list">
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/zaksal">ZAKSAL 소개</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
-							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
+							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/reg/seat">좌석등록/이용</a></li>
 							<li class="main_nav_item drop-down dropdown-toggle" data-toggle="dropdown"><a href="#">커뮤니티</a> <!-- 드롭다운으로 사물함/ 좌석 -->
 							<li class="dropdown-menu">
 								<a class="dropdown-item" href="${pageContext.request.contextPath}/board/list?category=1">공지사항</a>
@@ -71,40 +70,42 @@
 							</li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/admin/admin">관리자페이지</a></li>
 						</ul>
-					</sec:authorize>
+				</c:otherwise>
+				</c:choose>
 				</div>
 			</nav>
 		</div>
 		<div class="header_side d-flex flex-row justify-content-center align-items-center">
-			<sec:authorize access="isAnonymous()">
+		<c:choose>
+			<c:when test="${member eq null}">
 				<div class="main_nav">
 					<ul class="main_nav_list">
 			    		<li class="main_nav_item mx-0"><a class="text-white" href="${pageContext.request.contextPath}/member/login">로그인</a></li>
 						<li class="main_nav_item"><a class="text-white ml-4" href="${pageContext.request.contextPath}/member/terms">회원가입</a></li>
 	                </ul>
                 </div>
-			</sec:authorize>
+			</c:when>
 
-			<sec:authorize access = "isAuthenticated()">
-			<sec:authentication property="principal" var="member"/>
+			<c:otherwise>
 
 				<!-- Nav Item - User Information -->
 				<h4 class="nav-link dropdown-toggle mt-3 pt-1" href="#" id="userDropdown" role="button" 
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">    
-					<a class="text-white">${member.vo.userName}님 환영합니다.</a></h4>
+					<a class="text-white">${member.userName}님 환영합니다.</a></h4>
 				<!-- Dropdown - User Information -->
 				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 					<form method="post" action="${pageContext.request.contextPath}/member/logout" >
 						<button class="dropdown-item">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>로그아웃
                         </button>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					</form>
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/member/pwCheck"> 
 						<i class="fas fa-user-slash"></i>탈퇴
 					</a>
 				</div>
-			</sec:authorize>
+				
+			</c:otherwise>
+		</c:choose>
 		</div>
                        
 		

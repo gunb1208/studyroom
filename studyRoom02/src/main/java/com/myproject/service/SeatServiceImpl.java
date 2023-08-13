@@ -11,8 +11,8 @@ import com.myproject.domain.SeatDomain;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-@Service
 @Log4j2
+@Service
 @AllArgsConstructor
 public class SeatServiceImpl implements SeatService {
 

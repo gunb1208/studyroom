@@ -2,8 +2,11 @@ package com.myproject.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.myproject.domain.RegInfoDomain;
 
+@Mapper
 public interface RegInfoDao {
 
 	// 이용 등록 정보 등록

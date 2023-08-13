@@ -3,8 +3,6 @@ package com.myproject.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.myproject.dao.MemberDao;
@@ -35,21 +33,21 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void join(MemberDomain memberDomain) {
 		
-//		AuthDomain authDomain = new AuthDomain();
-//		
-//		log.info("service register..." + memberDomain);
-//		
+		AuthDomain authDomain = new AuthDomain();
+		
+		log.info("service register..." + memberDomain);
+		
 //		String encodePw = encoder.encode(memberDomain.getUserPw());
 //		memberDomain.setUserPw(encodePw);
-//
-//		memberDao.insert(memberDomain);
-//		
-//		// 회원 번호 조회
-//		int userNo = memberDao.findUserNoBy(memberDomain.getUserId());
-//		authDomain.setUserNo(userNo);
-//		
-//		// 회원 권한 입력
-//		memberDao.insertAuth(authDomain);
+
+		memberDao.insert(memberDomain);
+		
+		// 회원 번호 조회
+		int userNo = memberDao.findUserNoBy(memberDomain.getUserId());
+		authDomain.setUserNo(userNo);
+		
+		// 회원 권한 입력
+		memberDao.insertAuth(authDomain);
 		
 	}
 
@@ -71,6 +69,12 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDomain findByUserId(String userId) {
 		
 		return memberDao.findById(userId);
+	}
+
+	@Override
+	public MemberDomain login(MemberDomain memberDomain) {
+		
+		return memberDao.login(memberDomain);
 	}
 	
 }

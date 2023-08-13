@@ -20,4 +20,6 @@ public interface MemberService {
 	
 	MemberDomain findByUserId(String userId);
 	
+	MemberDomain login(MemberDomain memberDomain);
+	
 }

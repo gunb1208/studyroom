@@ -43,9 +43,9 @@
     </insert>
     
     <!-- 시큐리티 -->
-    <select id="findUserNoBy">
+    <!-- <select id="findUserNoBy">
 		SELECT USERNO FROM MEMBER WHERE USERID = #{userId}
-    </select>
+    </select> -->
     
     <select id="read" resultMap="memberMap">
 		SELECT * FROM MEMBER JOIN MEMBER_AUTH USING (USERNO) WHERE USERNO = #{userNo}
@@ -54,6 +54,11 @@
 	<!-- 아이디로 회원조회 -->
 	<select id="findById" resultType="MemberDomain">
 		SELECT * FROM MEMBER WHERE USERID = #{userId}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="login" resultType="MemberDomain" parameterType="MemberDomain">
+		SELECT * FROM MEMBER WHERE USERID = #{userId} AND USERPW = #{userPw}
 	</select>
     
     

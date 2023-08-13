@@ -34,8 +34,9 @@ public class IndexController {
 		log.info("gallery..");
 	}
 	
-	@GetMapping("/aksal")
-	public void zaksal() {
-		log.info("zaksal..");
+	@GetMapping("/ysStudyRoom")
+	public void ysStudyRoom() {
+		log.info("ysStudyRoom..");
 	}
+	
 }

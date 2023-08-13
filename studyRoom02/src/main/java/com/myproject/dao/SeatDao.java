@@ -2,8 +2,11 @@ package com.myproject.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.myproject.domain.SeatDomain;
 
+@Mapper
 public interface SeatDao {
 
 	// 모든 좌석 조회

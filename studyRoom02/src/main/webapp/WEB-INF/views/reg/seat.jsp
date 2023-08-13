@@ -23,7 +23,7 @@
             <sec:authentication property="principal" var="member"/>
             <div class="mb-3">
             	<c:forEach items="${regList}" var="reg">
-            		<c:if test="${reg.userNo == member.vo.userNo}">
+            		<c:if test="${reg.userNo == member.userNo}">
             			<fmt:formatDate var="formatEndDate" value="${reg.endDate}" pattern="yyyy.MM.dd"/>
 						<span>나의 만료일: ${formatEndDate}</span>
 						<a href="${pageContext.request.contextPath}/payment/exPayment" class="btn btn-sm btn-outline-warning mx-2">연장하기</a>
@@ -245,8 +245,8 @@
 			            </div>
 			            <sec:authorize access="isAuthenticated()">
 			            <sec:authentication property="principal" var="member"/>
-			            <input type="hidden" name="userNo" value="${member.vo.userNo}">
-			            <input type="hidden" name="userName" value="${member.vo.userName}">
+			            <input type="hidden" name="userNo" value="${member.userNo}">
+			            <input type="hidden" name="userName" value="${member.userName}">
 			            <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
 			            </sec:authorize>
 			            </form>
@@ -264,7 +264,7 @@
 		$(".sRegBtn").click(function() {
 			var result = confirm($(this).attr('value') + "번 좌석을 등록하시겠습니까?");
 			sno = $(this).data("sno"); /* 등록 버튼에 해당하는 좌석 번호 */
-			var user = '${member.vo.userNo}';
+			var user = '${member.userNo}';
 			console.log("선택한 좌석번호1:: " + sno);
 			if(user =='') {
 				alert("로그인 후 이용하실 수 있습니다.");

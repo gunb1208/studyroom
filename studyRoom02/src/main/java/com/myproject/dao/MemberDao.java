@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import com.myproject.domain.AuthDomain;
 import com.myproject.domain.MemberDomain;
@@ -23,10 +24,13 @@ public interface MemberDao {
 	//권한부여
 	void insertAuth(AuthDomain authDomain);
 	
-	//시큐리티 userNo -> userId
+	//시큐리티 username -> userid
+	@Select("SELECT USERNO FROM MEMBER WHERE USERID = #{userId}")
 	int findUserNoBy(@Param("userId") String userId);
 	
 	MemberDomain read(int userNo);
 	
 	MemberDomain findById(String userId);
+	
+	MemberDomain login(MemberDomain memberDomain);
 }
