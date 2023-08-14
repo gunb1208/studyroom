@@ -27,7 +27,7 @@
             			<fmt:formatDate var="formatEndDate" value="${reg.endDate}" pattern="yyyy.MM.dd"/>
 						<span>나의 만료일: ${formatEndDate}</span>
 						<a href="${pageContext.request.contextPath}/payment/exPayment" class="btn btn-sm btn-outline-warning mx-2">연장하기</a>
-						<a href="${pageContext.request.contextPath}/item/changeSeat" class="btn btn-sm btn-outline-danger chgSeatBtn">좌석 변경하기</a>
+						<a href="${pageContext.request.contextPath}/reg/changeSeat" class="btn btn-sm btn-outline-danger chgSeatBtn">좌석 변경하기</a>
             		</c:if>
             	</c:forEach>
 			</div>
@@ -225,30 +225,16 @@
 									<option value="4">30일 (200,000)</option>
 								</select>
 			   				</div>
-			            	<div class="form-check addLocker"> <!-- 7일 이상 사용시 -->
-			            		<label class="form-check-label mb-2">
-			    					<input type="checkbox" class="form-check-input chkLoc" value="usingLoc" onclick="showHideLocker(this)">사물함도 함께 이용하기. 
-			    				</label>
-								<div id="showEmpLoc" class="form-check mt-3">
-									<span>7일 (6,000), 14일 (10,000), 30일 (20,000)</span>
-									<div class="mt-2"><h4 class="text-info">이용 가능한 사물함 번호</h4>
-										<c:forEach items="${empLocList}" var="locker">
-										    <%-- <label class="form-check-label"><input type="radio" class="form-check-input mx-2 chkLno" name="lockerNo" value="${locker.lno}"></label> --%>
-										    <label><input type="radio" class="form-check mx-2" name="lockerNo" value="${locker.lno}" required> ${locker.lno}번 </label>
-										</c:forEach>
-									</div>
-								</div>
-							</div>
 			            </div>
 			            <div class="modal-footer">
 			                <button type="button" id="modalNextBtn" class="btn btn-warning btn-sm text-light" data-dismiss="modal">결제하기</button>
 			            </div>
-			            <sec:authorize access="isAuthenticated()">
-			            <sec:authentication property="principal" var="member"/>
+			            <!-- <sec:authorize access="isAuthenticated()">
+			            <sec:authentication property="principal" var="member"/> -->
 			            <input type="hidden" name="userNo" value="${member.userNo}">
 			            <input type="hidden" name="userName" value="${member.userName}">
 			            <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
-			            </sec:authorize>
+			            <!-- </sec:authorize> -->
 			            </form>
 			        </div>
 			    </div>

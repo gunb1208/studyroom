@@ -22,4 +22,8 @@ public interface RegInfoService {
 	// 이용 기간 연장
 	int extendUsingPeriod(RegInfoDomain regInfoDomain);
 	
+
+	// 결제 전 임시 등록
+	int RegisterTmpReg(RegInfoDomain infoDomain);
+	
 }

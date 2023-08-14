@@ -7,7 +7,7 @@ var paymentService = (function() {
 	return {
 		feeFindBy: function(param, callback, error) {
 			console.log("payment.feeFindBy()........");
-			var url = "https://zaksal.levinni.site/payment/getFee?fno=" + param.fno;
+			var url = "http://localhost:8089/payment/getFee?fno=" + param.fno;
 			console.log(url);
 			//ajax호출
 			$.getJSON(url, function(result) { //success

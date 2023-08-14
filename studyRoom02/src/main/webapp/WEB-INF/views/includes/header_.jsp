@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>독서실</title>
+<title>YS독서실</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Course Project">
@@ -39,7 +39,7 @@
 			<div class="logo_container px-4">
 				<div class="logo">
 					<a href="${pageContext.request.contextPath}/index">
-					<%-- <img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="로고"> --%>
+					<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="로고">
 					</a>
 				</div>
 			</div>

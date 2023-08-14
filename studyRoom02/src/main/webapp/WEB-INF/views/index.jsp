@@ -18,7 +18,7 @@
 		<div class="menu_inner menu_mm">
 			<div class="menu menu_mm">
 				<ul class="menu_list menu_mm">
-					<li class="menu_item menu_mm"><a href="#">ZAKSAL 소개</a></li>
+					<li class="menu_item menu_mm"><a href="#">YS독서실 소개</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
@@ -184,7 +184,7 @@
 								<div class="event_content">
 									<div class="event_name" style="font-size: 130%; font-color: black;">시설 및 서비스</div>
 									<div class="event_location">시설 안내 / 이용 안내 / 좌석 등록 및 이용</div>
-									<p>ZAKSAL 독서실의 시설 및 이용방법에 대해 안내되어 있습니다. <br>좌석 등록/이용 메뉴에서 홈페이지를 통해 좌석을 예약하실 수 있습니다.</p>
+									<p>YS독서실의 시설 및 이용방법에 대해 안내되어 있습니다. <br>좌석 등록/이용 메뉴에서 홈페이지를 통해 좌석을 예약하실 수 있습니다.</p>
 								</div>
 							</div>
 
@@ -214,7 +214,7 @@
 								<div class="event_content">
 									<div class="event_name" style="font-size: 130%; font-color: black;">게시판</div>
 									<div class="event_location">공지사항 / Q&A</div>
-									<p>ZAKSAL 독서실의 공지사항 및 이용에 대한 질문과 답변 내용을 확인하실 수 있습니다.<br></p>
+									<p>YS독서실의 공지사항 및 이용에 대한 질문과 답변 내용을 확인하실 수 있습니다.<br></p>
 								</div>
 							</div>
 
@@ -243,21 +243,21 @@
 		    <div class="carousel-item active">
 		      <img class="d-block w-100" src="${pageContext.request.contextPath}/resources/images/Index_slide_1.jpg" alt="First slide">
 		        <div class="carousel-caption d-none d-md-block">
-				    <h1>작살 독서실은</h1>
+				    <h1>YS독서실은</h1>
 				    <h2>회원제로 운영되는 독서실입니다.<br>고정 20석, 자유 20석 총 40개의 좌석과 16개의 사물함이 마련되어있습니다.</h2>
 				</div>
 		    </div>
 		    <div class="carousel-item">
 		      <img class="d-block w-100" src="${pageContext.request.contextPath}/resources/images/Index_slide_2.jpg" alt="Second slide">
 		        <div class="carousel-caption d-none d-md-block">
-				    <h1>작살 독서실에서는</h1>
+				    <h1>YS독서실에서는</h1>
 				    <h2>최대 인원을 엄격하게 제한한 공간, 세심한 회원 관리를 통해 365일 쾌적한 학습 환경을 제공합니다.</h2>
 				</div>
 		    </div>
 		    <div class="carousel-item">
 		      <img class="d-block w-100" src="${pageContext.request.contextPath}/resources/images/Index_slide_3.jpg" alt="Third slide">
 		        <div class="carousel-caption d-none d-md-block">
-				    <h1>작살 독서실이</h1>
+				    <h1>YS독서실이</h1>
 				    <h2>포기하지 않는 꾸준한 학습을 통해 소중한 꿈에 한 발 다가가는 회원님들을 응원합니다.</h2>
 				</div>
 		    </div>
@@ -384,7 +384,7 @@
 			// 커스텀 오버레이에 표시할 내용입니다
 			// HTML 문자열 또는 Dom Element 입니다
 			var content = '<div class="overlay_info">';
-			content += '    <a href="" target="_blank"><strong>작살 독서실</strong></a>';
+			content += '    <a href="" target="_blank"><strong>YS독서실</strong></a>';
 			content += '    <div class="desc">';
 			content += '        <span class="address"> 천안시 서북구 성정공원5로 35, 6층</span>';
 			content += '    </div>';

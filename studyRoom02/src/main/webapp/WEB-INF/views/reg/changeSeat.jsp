@@ -21,19 +21,17 @@
 		<div class="container">
 			<div class="d-flex justify-content-center mb-3"><h1>고정석</h1></div>
 			
-            <sec:authorize access="isAuthenticated()">
-            <sec:authentication property="principal" var="member"/>
             <div class="mb-3">
             	<c:forEach items="${regList}" var="reg">
-            		<c:if test="${reg.userNo == member.vo.userNo}">
+            		<c:if test="${reg.userNo == member.userNo}">
             			<fmt:formatDate var="formatEndDate" value="${reg.endDate}" pattern="yyyy.MM.dd"/>
-						<span>나의 만료일: ${formatEndDate},  현재 이용중인 좌석: ${reg.seatNo}</span>
+						<span>나의 만료일: ${formatEndDate},  현재 이용중인 좌석: ${reg.seatNo}번</span>
 						<a href="${pageContext.request.contextPath}/payment/exPayment" class="btn btn-sm btn-outline-warning mx-2">연장하기</a>
 						<input type="hidden" name="sno" value="${reg.seatNo}"> <!-- 기존 좌석 번호 -->
             		</c:if>
             	</c:forEach>
 			</div>
-	        </sec:authorize>
+			
 				<div class="row">
 					<div id="room1" class="border px-5 py-5">
 						<div class="card-deck">
@@ -202,21 +200,23 @@
 				</div> <!-- end room3 -->
 				<sec:authorize access="isAuthenticated()">
             	<sec:authentication property="principal" var="member"/>
-					<input type="hidden" name="userNo" value="${member.vo.userNo}"> <!-- 유저번호 -->
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+					<input type="hidden" name="userNo" value="${member.userNo}"> <!-- 유저번호 -->
 				</sec:authorize>
 			</div>
 		</form>
 	</div> <!-- news 끝 -->
+	
+	
 	<script>
 
     
 	$(function() { //ready
 		/* 각 좌석의 변경 버튼을 눌렀을 때 */
 		$(".sRegBtn").click(function() {
+
 			var result = confirm($(this).attr('value') + "번 좌석으로 변경하시겠습니까?");
 			var sno = $(this).data("sno"); /* 등록 버튼에 해당하는 좌석 번호 */
-			var user = '${member.vo.userNo}';
+			var user = '${member.userNo}';
 	 		var str = '<input type="hidden" name="seatNo" value="'+ sno +'">'; 	// 변경할 좌석
 			if(user =='') {
 				alert("로그인 후 이용하실 수 있습니다.");
@@ -227,6 +227,7 @@
 					
 				}
 			}
+	 		
 		});
 		var msg = '${msg}';
 		if(msg === 'changeOK') {

@@ -41,12 +41,14 @@ public class RegController {
 	}
 	
 //	@PreAuthorize("principal.vo.userNo == #regInfoDomain.userNo")
-//	@PostMapping("changeSeat")
-//	public String changeSeatP(RegInfoDomain regInfoDomain, SeatDomain seatDomain, RedirectAttributes rttr) {
-//		regInfoService.changeSeat(regInfoDomain, seatDomain);
-//		rttr.addFlashAttribute("msg", "changeOK");
-//		return "redirect:/reg/seat";
-//	}
+	@PostMapping("changeSeat")
+	public String changeSeat(RegInfoDomain regInfoDomain, SeatDomain seatDomain, RedirectAttributes rttr) {
+		regInfoService.changeSeat(regInfoDomain, seatDomain);
+		log.info(regInfoDomain +", "+ seatDomain);
+		
+		rttr.addFlashAttribute("msg", "changeOK");
+		return "redirect:/reg/seat";
+	}
 	
 	
 }

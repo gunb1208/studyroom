@@ -30,4 +30,23 @@ public interface RegInfoDao {
 	// 이용 기간 연장 (이용 등록 정보 수정)
 	int updatePeriod(RegInfoDomain regInfoDomain);
 	
+	
+	
+	
+	
+	// -------------- 임시 테이블 --------------
+	
+	// 결제 전 임시 테이블에 등록
+	int insertTmpReg(RegInfoDomain infoDomain);
+	
+	// 임시 테이블 데이터 조회
+	List<RegInfoDomain> getTmpList();
+	
+
+	// 임시 등록 데이터 삭제
+	int deleteTmpReg();
+
+	// 결제 미완료 된 임시 등록 정보 목록
+	List<RegInfoDomain> getTmpToRegList();
+	
 }

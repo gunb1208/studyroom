@@ -49,8 +49,11 @@ public class RegInfoServiceImpl implements RegInfoService {
 	@Transactional
 	public void changeSeat(RegInfoDomain regInfoDomain, SeatDomain seatDomain) {
 		
+		log.info(regInfoDomain);
 		regInfoDao.updateSeat(regInfoDomain);
 		
+
+		log.info(seatDomain);
 		/* 변경할 좌석과 기존 이용 좌석의 상태 값을 바꾸는 작업 */
 		seatDao.updateNewSeat(seatDomain);
 		seatDao.updateOldSeat(seatDomain);
@@ -60,6 +63,22 @@ public class RegInfoServiceImpl implements RegInfoService {
 	@Override
 	public int extendUsingPeriod(RegInfoDomain regInfoDomain) {
 		return regInfoDao.updatePeriod(regInfoDomain);
+	}
+
+	@Override
+	@Transactional
+	public int RegisterTmpReg(RegInfoDomain regInfoDomain) {
+		
+		/* 임시 등록 시 좌석의 상태를 '이용중'으로 변경하기 위한 작업 */
+		SeatDomain seatDomain = new SeatDomain();
+		seatDomain.setUserNo(regInfoDomain.getUserNo());
+		seatDomain.setStatus(true);
+		seatDomain.setSno(regInfoDomain.getSeatNo());
+		
+		seatDao.updateStatus(seatDomain);
+		
+		
+		return regInfoDao.insertTmpReg(regInfoDomain);
 	}
 	
 }

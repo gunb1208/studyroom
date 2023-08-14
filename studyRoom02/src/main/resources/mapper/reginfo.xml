@@ -6,11 +6,11 @@
 
 	<!-- 이용 등록 정보 등록 -->
 	<insert id="insertRegInfo">
-		<selectKey keyProperty="regNo" order="BEFORE" resultType="long">
+		<selectKey keyProperty="regNo" order="BEFORE" resultType="int">
 			SELECT SEQ_REGINFO.NEXTVAL FROM DUAL
 		</selectKey>
     	INSERT INTO REGINFO (REGNO, USERNO, USERNAME, FNO, SEATNO, FEENAME, ENDDATE) <!-- jsp에서 받은 값 -->
-    	VALUES (#{regNo}, #{userNo}, #{userName}, #{fno}, #{seatNo}, #{feeName}, SYSDATE + #{period})
+    	VALUES (#{regNo}, #{userNo}, #{userName}, #{fno}, #{seatNo}, #{feeName, jdbcType=VARCHAR}, SYSDATE + #{period})
 	</insert>
 	
 	<!-- 이용 등록 정보 상세 조회 -->
@@ -42,6 +42,35 @@
 	<update id="updatePeriod">
 		UPDATE REGINFO SET ENDDATE = ENDDATE + #{period} WHERE USERNO = #{userNo}
 	</update>
+	
+	
+	
+	
+	<!-- 임시 테이블 -->
+	<!-- 결제 전 임시 테이블에 등록(동시 등록을 막기 위함.) -->
+	<insert id="insertTmpReg">
+		<selectKey keyProperty="regNo" order="BEFORE" resultType="int">
+			SELECT SEQ_REGINFO.NEXTVAL FROM DUAL
+		</selectKey>
+	    	INSERT INTO TMP_REG (REGNO, USERNO, USERNAME, FNO, SEATNO) <!-- feeName, period는 payment에서 처리. -->
+	    	VALUES (#{regNo}, #{userNo}, #{userName}, #{fno}, #{seatNo})
+	    
+	</insert>
+	
+	<!-- 임시 테이블 데이터 조회 -->
+	<select id="getTmpList" resultType="RegInfoDomain">
+		SELECT * FROM TMP_REG
+	</select>
+	
+	<!-- 임시 테이블 데이터 삭제(스케줄러에 의한 자동 삭제) -->
+	<delete id="deleteTmpReg">
+		DELETE TMP_REG WHERE REGNO IN (SELECT REGNO FROM TMP_REG)
+	</delete>
+	
+	<!-- 결제 미완료 된 임시 등록 정보 목록 -->
+	<select id="getTmpToRegList" resultType="RegInfoDomain">
+		SELECT * FROM TMP_REG MINUS SELECT * FROM REGINFO
+	</select>
 	
 	
 </mapper>

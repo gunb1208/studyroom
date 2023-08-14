@@ -25,12 +25,12 @@
 	</update>
 	<!-- 좌석 변경 시 기존 좌석 상태를 빈좌석으로 변경 -->
 	<update id="updateOldSeat">
-		UPDATE SEAT SET STATUS = 0, USERNO = 0 WHERE SNO = #{sno}
+		UPDATE SEAT SET STATUS = 0, USERNO = NULL WHERE SNO = #{sno}
 	</update>
 	
 	<!-- 이용 등록 정보 삭제 시 빈 좌석으로 변경 -->
 	<update id="delInfoupdateSeat">
-		UPDATE SEAT SET STATUS = 0, USERNO = 0 WHERE USERNO = #{userNo}
+		UPDATE SEAT SET STATUS = 0, USERNO = NULL WHERE USERNO = #{userNo}
 	</update>
 	
 	
