@@ -44,7 +44,7 @@
 			<nav class="main_nav_container">
 				<div class="main_nav">
 				<c:choose>
-				<c:when test="${memberAuth eq 'ROLE_MEMBER'}">
+				<c:when test="${memberAuth eq 'ROLE_MEMBER' || memberAuth eq null}">
 						<ul class="main_nav_list mr-5">
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/ysStudyRoom">YS독서실 소개</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
@@ -59,7 +59,7 @@
 				</c:when>
 				<c:otherwise>
 						<ul class="main_nav_list">
-							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/zaksal">ZAKSAL 소개</a></li>
+							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/ysStudyRoom">YS독서실 소개</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/reg/seat">좌석등록/이용</a></li>

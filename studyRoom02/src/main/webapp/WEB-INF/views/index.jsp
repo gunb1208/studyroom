@@ -24,9 +24,13 @@
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/board/list?category=1">공지사항</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/board/list?category=2">Q&A</a></li>
-					<sec:authorize access="hasRole('ADMIN')">
-					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/admin/admin">관리자페이지</a></li>
-					</sec:authorize>
+					<c:choose>
+						<c:when test="${memberAuth eq 'ROLE_ADMIN'}">
+							<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/admin/admin">관리자페이지</a></li>
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 
 				<!-- Menu Social -->
@@ -359,7 +363,7 @@
 	        <div class="col-8">
 				<div id="map" style="width:100%; height:400px; clear:both;"></div>
 			
-			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=782f162a7272734e440b80b9cdb6c6c7"></script>
+			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c680f8a34da4fd828978c0ecd16f9d8e"></script>
 			
 			    <style>
 			    .overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; border: 1px solid #ccc; border-bottom: 2px solid #ddd;background-color:#fff;}
@@ -372,7 +376,7 @@
 			<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = { 
-			        center: new kakao.maps.LatLng(36.827530244852944, 127.14105322504332), // 지도의 중심좌표
+			        center: new kakao.maps.LatLng(35.33796083023098, 129.0275508185439), // 지도의 중심좌표
 			        level: 3 // 지도의 확대 레벨
 			    };
 			
@@ -386,12 +390,12 @@
 			var content = '<div class="overlay_info">';
 			content += '    <a href="" target="_blank"><strong>YS독서실</strong></a>';
 			content += '    <div class="desc">';
-			content += '        <span class="address"> 천안시 서북구 성정공원5로 35, 6층</span>';
+			content += '        <span class="address"> 경남 양산시 중부동 686-7 양산역프라자 2층 </span>';
 			content += '    </div>';
 			content += '</div>';
 	
 			// 커스텀 오버레이가 표시될 위치입니다 
-			var position = new kakao.maps.LatLng(36.827530244852944, 127.14105322504332);
+			var position = new kakao.maps.LatLng(35.33796083023098, 129.0275508185439);
 	
 			// 커스텀 오버레이를 생성합니다
 			var mapCustomOverlay = new kakao.maps.CustomOverlay({
@@ -412,13 +416,13 @@
               <div class="card-body text-dark">
                 <h3 class="card-title">버스 이용안내</h3>
                 <p class="card-text">
-                  3, 30, 31, 11, 830, 840, 850, 860, 870, 910, 911, 920, 921, 92, 94, 97
+                  8, 10, 11, 16, 21, 32, 32-1, 33, 128, 128-1
                 </p>
                 <p>─</p>
 
                 <h3 class="card-title">지하철 이용안내</h3>
                 <p class="card-text" style="bold;">
-                  1호선  두정역 1번출구이용 도보 12분
+                  부산지하철 2호선 - 양산역 4번 출구 100m 앞, 양산역 프라자 2F
                 </p>
                 <p>─</p>
                </div>

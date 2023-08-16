@@ -2,10 +2,12 @@ package com.myproject.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.myproject.domain.AddressDomain;
 import com.myproject.domain.AuthDomain;
 import com.myproject.domain.MemberDomain;
 
@@ -20,6 +22,9 @@ public interface MemberDao {
 	
 	//아이디 중복 체크
 	public int idChk(MemberDomain memberDomain);
+	
+	//주소
+	void insertAddr(AddressDomain addressVO);
 	
 	//권한부여
 	void insertAuth(AuthDomain authDomain);

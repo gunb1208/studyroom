@@ -48,6 +48,10 @@ public class MemberServiceImpl implements MemberService {
 		
 		// 회원 권한 입력
 		memberDao.insertAuth(authDomain);
+
+		// 회원 주소 입력
+		memberDomain.getAddress().setUserNo(userNo);
+		memberDao.insertAddr(memberDomain.getAddress());
 		
 	}
 

@@ -14,6 +14,8 @@ public class MemberDomain {
 	private String tel;
 	private boolean enabled;
 	
+
+	private AddressDomain address; //회원 주소
 	private List<AuthDomain> authList; //권한
     
     private String endDate; //서비스 종료일

@@ -7,8 +7,8 @@
 	<!-- 결제 -->
 	<insert id="insert" >
 	<if test="regNo != null">
-		INSERT INTO PAYMENT(PAYNO, USERNO, USERNAME, REGNO, PAYMENT, ITEMNAME) 
-			VALUES(SEQ_PAYMENT.NEXTVAL, #{userNo}, #{userName}, #{regNo}, #{payment}, #{itemName})
+		INSERT INTO PAYMENT(PAYNO, USERNO, USERNAME, REGNO, PAYMENT, ITEMNAME, PAYDATE) 
+			VALUES(SEQ_PAYMENT.NEXTVAL, #{userNo}, #{userName}, #{regNo}, #{payment}, #{itemName}, SYSDATE)
 	</if>
 	<if test="regNo == null">
 		INSERT INTO PAYMENT(PAYNO, USERNO, USERNAME, PAYMENT, ITEMNAME) 

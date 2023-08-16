@@ -49,7 +49,7 @@
 				<div class="main_nav">
 				
 				<c:choose>
-				<c:when test="${memberAuth eq 'ROLE_MEMBER'}">
+				<c:when test="${memberAuth eq 'ROLE_MEMBER' || memberAuth eq null}">
 						<ul class="main_nav_list mr-5">
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/ysStudyRoom">YS독서실 소개</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>

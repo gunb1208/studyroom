@@ -16,33 +16,33 @@
 		<div class="container my-5">
 			<div class="card">
 				<div class="card-header bg-light text-dark">
-				<p>좌석/사물함 연장이 완료되었습니다.</p>
+				<p>좌석 연장이 완료되었습니다.</p>
 				</div>
-				<%-- <p>${paymentVO}<p><br>
-				<p>${regInfoVO}<p> --%>
+				<%-- <p>${paymentDomain}<p><br>
+				<p>${regInfoDomain}<p> --%>
 				<div class="card-body row mx-1">
 					<img class="col-4" src="/resources/images/study4.jpg" >
 					<div class="col-8">
 						<table class="table">
 							<tr>
 								<td>등록번호 : </td>
-								<td>${regInfoVO.regNo}</td>
+								<td>${regInfoDomain.regNo}</td>
 							</tr>
 							<tr>
 								<td>상품이름 : </td>
-								<td>${paymentVO.itemName}<td>
+								<td>${paymentDomain.itemName}<td>
 							</tr>
 							<tr>
 								<td>결제금액 : </td>
-								<td>${paymentVO.payment}원</td>
+								<td>${paymentDomain.payment}원</td>
 							</tr>
 							<tr>
 								<td>좌석번호 : </td>
-								<td>${regInfoVO.sno}번</td>
+								<td>${regInfoDomain.seatNo}번 좌석</td>
 							</tr>
 							<tr>
-								<td>추가시간 : </td>
-								<td>${regInfoVO.period}일</td>
+								<td>추가기간 : </td>
+								<td>${regInfoDomain.period}일</td>
 							</tr>
 						</table>
 					</div>
@@ -51,6 +51,16 @@
 		</div>
 	
 	<script>
-	 
-</script>
+	
+		function doNotReload(){
+		    if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116) ) {
+		        event.keyCode = 0;
+		        event.cancelBubble = true;
+		        event.returnValue = false;
+		    } 
+		}
+		document.onkeydown = doNotReload;
+		
+	</script>
+	
 <jsp:include page="../includes/footer.jsp" />

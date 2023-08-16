@@ -25,7 +25,7 @@
             	<c:forEach items="${regList}" var="reg">
             		<c:if test="${reg.userNo == member.userNo}">
             			<fmt:formatDate var="formatEndDate" value="${reg.endDate}" pattern="yyyy.MM.dd"/>
-						<span>나의 만료일: ${formatEndDate},  현재 이용중인 좌석: ${reg.seatNo}번</span>
+						<span>현재 이용중인 좌석: ${reg.seatNo}번 / 만료일: ${formatEndDate}</span>
 						<a href="${pageContext.request.contextPath}/payment/exPayment" class="btn btn-sm btn-outline-warning mx-2">연장하기</a>
 						<input type="hidden" name="sno" value="${reg.seatNo}"> <!-- 기존 좌석 번호 -->
             		</c:if>
@@ -37,18 +37,31 @@
 						<div class="card-deck">
 							<c:forEach items="${seatList}" var="seat" begin="0" end="3">
 								<c:if test="${seat.status == true}">
-									<div class="card bg-warning container" style="width: 90px"">
-									  <div class="card-body text-center px-0">
-									    <p class="card-text text-white">좌석 0${seat.sno}</p>
-									    <p class="card-text text-white">${seat.name}</p>
-									    <p class="card-text text-white">이용중</p>
-									  </div>
-									</div>
+									<c:choose>
+										<c:when test="${seat.userNo == member.userNo}">
+											<div class="card bg-primary container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:when>
+										<c:otherwise>	
+											<div class="card bg-warning container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:otherwise>
+									</c:choose>
 								</c:if>
 								<c:if test="${seat.status == false}">
 									<div class="card bg-muted container" style="width: 90px"">
 									  <div class="card-body text-center px-0">
-									    <p class="card-text">좌석 0${seat.sno}</p>
+									    <p class="card-text">${seat.sno}번 좌석</p>
 									    <p class="card-text">${seat.name}</p>
 									    <button type="button" class="sRegBtn btn btn-sm btn-light container px-0" data-sno="${seat.sno}" value="${seat.sno}">변경</button>
 									  </div>
@@ -59,18 +72,31 @@
 						<div class="card-deck mt-4">
 							<c:forEach items="${seatList}" var="seat" begin="4" end="7">
 								<c:if test="${seat.status == true}">
-									<div class="card bg-warning container" style="width: 90px"">
-									  <div class="card-body text-center px-0">
-									    <p class="card-text text-white">좌석 0${seat.sno}</p>
-									    <p class="card-text text-white">${seat.name}</p>
-									    <p class="card-text text-white">이용중</p>
-									  </div>
-									</div>
+									<c:choose>
+										<c:when test="${seat.userNo == member.userNo}">
+											<div class="card bg-primary container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:when>
+										<c:otherwise>	
+											<div class="card bg-warning container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:otherwise>
+									</c:choose>
 								</c:if>
 								<c:if test="${seat.status == false}">
 									<div class="card bg-muted container" style="width: 90px"">
 									  <div class="card-body text-center px-0">
-									    <p class="card-text">좌석 0${seat.sno}</p>
+									    <p class="card-text">${seat.sno}번 좌석</p>
 									    <p class="card-text">${seat.name}</p>
 									    <button type="button" class="sRegBtn btn btn-sm btn-light container px-0" data-sno="${seat.sno}" value="${seat.sno}">변경</button>
 									  </div>
@@ -81,18 +107,31 @@
 						<div class="card-deck mt-4">
 							<c:forEach items="${seatList}" var="seat" begin="8" end="11">
 								<c:if test="${seat.status == true}">
-									<div class="card bg-warning container" style="width: 90px"">
-									  <div class="card-body text-center px-0">
-									    <p class="card-text text-white">좌석 ${seat.sno}</p>
-									    <p class="card-text text-white">${seat.name}</p>
-									    <p class="card-text text-white">이용중</p>
-									  </div>
-									</div>
+									<c:choose>
+										<c:when test="${seat.userNo == member.userNo}">
+											<div class="card bg-primary container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:when>
+										<c:otherwise>	
+											<div class="card bg-warning container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:otherwise>
+									</c:choose>
 								</c:if>
 								<c:if test="${seat.status == false}">
 									<div class="card bg-muted container" style="width: 90px"">
 									  <div class="card-body text-center px-0">
-									    <p class="card-text">좌석 ${seat.sno}</p>
+									    <p class="card-text">${seat.sno}번 좌석</p>
 									    <p class="card-text">${seat.name}</p>
 									    <button type="button" class="sRegBtn btn btn-sm btn-light container px-0" data-sno="${seat.sno}" value="${seat.sno}">변경</button>
 									  </div>
@@ -105,18 +144,31 @@
 						<div class="card-deck">
 							<c:forEach items="${seatList}" var="seat" begin="12" end="15">
 								<c:if test="${seat.status == true}">
-									<div class="card bg-warning container" style="width: 90px"">
-									  <div class="card-body text-center px-0">
-									    <p class="card-text text-white">좌석 ${seat.sno}</p>
-									    <p class="card-text text-white">${seat.name}</p>
-									    <p class="card-text text-white">이용중</p>
-									  </div>
-									</div>
+									<c:choose>
+										<c:when test="${seat.userNo == member.userNo}">
+											<div class="card bg-primary container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:when>
+										<c:otherwise>	
+											<div class="card bg-warning container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:otherwise>
+									</c:choose>
 								</c:if>
 								<c:if test="${seat.status == false}">
 									<div class="card bg-muted container" style="width: 90px"">
 									  <div class="card-body text-center px-0">
-									    <p class="card-text">좌석 ${seat.sno}</p>
+									    <p class="card-text">${seat.sno}번 좌석</p>
 									    <p class="card-text">${seat.name}</p>
 									    <button type="button" class="sRegBtn btn btn-sm btn-light container px-0" data-target="#myModal" data-sno="${seat.sno}" value="${seat.sno}">변경</button>
 									  </div>
@@ -127,18 +179,31 @@
 						<div class="card-deck mt-4">
 							<c:forEach items="${seatList}" var="seat" begin="16" end="19">
 								<c:if test="${seat.status == true}">
-									<div class="card bg-warning container" style="width: 90px"">
-									  <div class="card-body text-center px-0">
-									    <p class="card-text text-white">좌석 ${seat.sno}</p>
-									    <p class="card-text text-white">${seat.name}</p>
-									    <p class="card-text text-white">이용중</p>
-									  </div>
-									</div>
+									<c:choose>
+										<c:when test="${seat.userNo == member.userNo}">
+											<div class="card bg-primary container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:when>
+										<c:otherwise>	
+											<div class="card bg-warning container" style="width: 90px">
+											  <div class="card-body text-center px-0">
+											    <p class="card-text text-white">${seat.sno}번 좌석</p>
+											    <p class="card-text text-white">${seat.name}</p>
+											    <p class="card-text text-white">이용중</p>
+											  </div>
+											</div>
+										</c:otherwise>
+									</c:choose>
 								</c:if>
 								<c:if test="${seat.status == false}">
 									<div class="card bg-muted container" style="width: 90px"">
 									  <div class="card-body text-center px-0">
-									    <p class="card-text">좌석 ${seat.sno}</p>
+									    <p class="card-text">${seat.sno}번 좌석</p>
 									    <p class="card-text">${seat.name}</p>
 									    <button type="button" class="sRegBtn btn btn-sm btn-light container px-0" data-sno="${seat.sno}" value="${seat.sno}">변경</button>
 									  </div>
@@ -155,18 +220,31 @@
 					<div class="card-deck">
 						<c:forEach items="${seatList}" var="seat" begin="20" end="27">
 							<c:if test="${seat.status == true}">
-								<div class="card bg-warning container" style="width: 90px"">
-								  <div class="card-body text-center px-0">
-								    <p class="card-text text-white">좌석 ${seat.sno}</p>
-								    <p class="card-text text-white">${seat.name}</p>
-								    <p class="card-text text-white">이용중</p>
-								  </div>
-								</div>
+								<c:choose>
+									<c:when test="${seat.userNo == member.userNo}">
+										<div class="card bg-primary container" style="width: 90px">
+										  <div class="card-body text-center px-0">
+										    <p class="card-text text-white">${seat.sno}번 좌석</p>
+										    <p class="card-text text-white">${seat.name}</p>
+										    <p class="card-text text-white">이용중</p>
+										  </div>
+										</div>
+									</c:when>
+									<c:otherwise>	
+										<div class="card bg-warning container" style="width: 90px">
+										  <div class="card-body text-center px-0">
+										    <p class="card-text text-white">${seat.sno}번 좌석</p>
+										    <p class="card-text text-white">${seat.name}</p>
+										    <p class="card-text text-white">이용중</p>
+										  </div>
+										</div>
+									</c:otherwise>
+								</c:choose>
 							</c:if>
 							<c:if test="${seat.status == false}">
 								<div class="card bg-muted container" style="width: 90px"">
 								  <div class="card-body text-center px-0">
-								    <p class="card-text">좌석 ${seat.sno}</p>
+								    <p class="card-text">${seat.sno}번 좌석</p>
 								    <p class="card-text">${seat.name}</p>
 								    <button type="button" class="sRegBtn btn btn-sm btn-light container px-0" data-target="#myModal" data-sno="${seat.sno}" value="${seat.sno}">변경</button>
 								  </div>
@@ -178,18 +256,31 @@
 					<div class="card-deck mt-4">
 						<c:forEach items="${seatList}" var="seat" begin="28" end="35">
 							<c:if test="${seat.status == true}">
-								<div class="card bg-warning container" style="width: 90px"">
-								  <div class="card-body text-center px-0">
-								    <p class="card-text text-white">좌석 ${seat.sno}</p>
-								    <p class="card-text text-white">${seat.name}</p>
-								    <p class="card-text text-white">이용중</p>
-								  </div>
-								</div>
+								<c:choose>
+									<c:when test="${seat.userNo == member.userNo}">
+										<div class="card bg-primary container" style="width: 90px">
+										  <div class="card-body text-center px-0">
+										    <p class="card-text text-white">${seat.sno}번 좌석</p>
+										    <p class="card-text text-white">${seat.name}</p>
+										    <p class="card-text text-white">이용중</p>
+										  </div>
+										</div>
+									</c:when>
+									<c:otherwise>	
+										<div class="card bg-warning container" style="width: 90px">
+										  <div class="card-body text-center px-0">
+										    <p class="card-text text-white">${seat.sno}번 좌석</p>
+										    <p class="card-text text-white">${seat.name}</p>
+										    <p class="card-text text-white">이용중</p>
+										  </div>
+										</div>
+									</c:otherwise>
+								</c:choose>
 							</c:if>
 							<c:if test="${seat.status == false}">
 								<div class="card bg-muted container" style="width: 90px"">
 								  <div class="card-body text-center px-0">
-								    <p class="card-text">좌석 ${seat.sno}</p>
+								    <p class="card-text">${seat.sno}번 좌석</p>
 								    <p class="card-text">${seat.name}</p>
 								    <button type="button" class="sRegBtn btn btn-sm btn-light container px-0" data-target="#myModal" data-sno="${seat.sno}" value="${seat.sno}">변경</button>
 								  </div>
@@ -198,10 +289,7 @@
 						</c:forEach>
 					</div> 
 				</div> <!-- end room3 -->
-				<sec:authorize access="isAuthenticated()">
-            	<sec:authentication property="principal" var="member"/>
 					<input type="hidden" name="userNo" value="${member.userNo}"> <!-- 유저번호 -->
-				</sec:authorize>
 			</div>
 		</form>
 	</div> <!-- news 끝 -->

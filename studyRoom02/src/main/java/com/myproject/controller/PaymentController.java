@@ -64,7 +64,7 @@ public class PaymentController {
 	public void payComplete(PaymentDomain paymentDomain, RegInfoDomain regInfoDomain, Model model) {
 		
 		log.info("payment......");
-		log.info("reginfoVO" + regInfoDomain);
+		log.info("reginfoDomain" + regInfoDomain);
 		log.info("paymentDomain" + paymentDomain);
 		
 		int regNo = paymentservice.pay(paymentDomain, regInfoDomain);
@@ -83,19 +83,19 @@ public class PaymentController {
 		
 	}
 	
-	@PostMapping("expayComplete")
-//	@PreAuthorize("principal.vo.userNo == #regInfoDomain.userNo")
-	public void payExComplete(PaymentDomain paymentDomain, RegInfoDomain regInfoDomain, Model model) {
-		
-		log.info("payment......");
-		log.info("reginfoVO" + regInfoDomain);
-		log.info("paymentDomain" + paymentDomain);
-		
-		paymentservice.extendPayment(paymentDomain, regInfoDomain);
-		
-//		model.addAttribute("regNo", regNo);
-//		log.info("regNo..." + regNo);
-	}
+//	@PostMapping("expayComplete")
+////	@PreAuthorize("principal.vo.userNo == #regInfoDomain.userNo")
+//	public void payExComplete(PaymentDomain paymentDomain, RegInfoDomain regInfoDomain, Model model) {
+//		
+//		log.info("payment......");
+//		log.info("reginfoDomain" + regInfoDomain);
+//		log.info("paymentDomain" + paymentDomain);
+//		
+//		paymentservice.extendPayment(paymentDomain, regInfoDomain);
+//		
+////		model.addAttribute("regNo", regNo);
+////		log.info("regNo..." + regNo);
+//	}
 	
 	@GetMapping("payTest")
 	public void payTest() {

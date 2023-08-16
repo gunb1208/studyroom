@@ -57,6 +57,8 @@ public class PaymentServiceImpl implements PaymentService {
 		reginfoDao.updatePeriod(regInfoDomain); // userNo, period
 		
 		paymentDomain.setUserNo(regInfoDomain.getUserNo());
+		paymentDomain.setRegNo(regInfoDomain.getRegNo());
+		
 		paymentDao.insert(paymentDomain);
 		
 	}

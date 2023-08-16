@@ -37,6 +37,11 @@
         SELECT COUNT(*) FROM MEMBER WHERE USERID = #{userId}
     </select>
     
+    <!-- 주소입력 -->
+    <insert id="insertAddr">
+		INSERT INTO ADDRESS (ADDRNO, USERNO, POST, ADDR, DETAIL, EXTRA) VALUES(SEQ_MEMBER.NEXTVAL, #{userNo} , #{post}, #{addr}, #{detail}, #{extra})
+    </insert>
+    
     <!-- 권한부여 -->
     <insert id="insertAuth">
     	INSERT INTO MEMBER_AUTH (USERNO, AUTH) VALUES (#{userNo}, 'ROLE_MEMBER')

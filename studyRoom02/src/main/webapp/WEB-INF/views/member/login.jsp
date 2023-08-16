@@ -40,7 +40,7 @@
 					<br>
 			        <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
 			    </form>
-			    <p class="mediuen">독서실에 가입하고 여러 혜택을 누리시겠습니까? <a href="${pageContext.request.contextPath}/member/join">회원가입 하기</a></p>
+			    <p class="mediuen">YS독서실에 가입하고 여러 혜택을 누리시겠습니까? <a href="${pageContext.request.contextPath}/member/join">회원가입 하기</a></p>
 		    </div>
 		</div>
 	</div>

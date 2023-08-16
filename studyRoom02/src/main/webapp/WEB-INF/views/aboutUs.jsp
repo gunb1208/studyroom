@@ -19,18 +19,17 @@
 				<span class="text-danger">* 사이트 내 모든 조회는 비회원도 가능하지만, 등록은 회원만 가능합니다.</span>
 				
 				<div class="mt-3">
-					<h2>좌석/사물함 등록하기</h2>
+					<h2>좌석 등록하기</h2>
 					<h3>1. 로그인 후 좌석 등록/이용 페이지에서 빈 좌석 중 희망하는 좌석을 선택해 주세요.</h3>
 					<img class="my-2" src='${pageContext.request.contextPath}/resources/images/info00.png' alt="좌석등록 설명1">
 				</div>
 				<div class="mt-5">
-					<h3>2. 희망하는 이용 기간을 선택 후, 사물함도 같이 이용하려면 체크해 주세요.</h3>
-					<h4 class="text-danger">* 사물함 이용 기간은 좌석 이용기간과 동일합니다. 추후 관리자를 통해 사물함 이용을 취소하실 수 있습니다.</h4>
+					<h3>2. 희망하는 이용 기간을 선택해 주세요.</h3>
 					<img class="my-2" src='${pageContext.request.contextPath}/resources/images/info01.png' alt="좌석등록 설명2">
 				</div>
 				<hr>
 				<div class="mt-5">
-					<h2>좌석/사물함 연장하기</h2>
+					<h2>좌석 연장하기</h2>
 					<h3>1. 로그인 후 좌석 등록/이용 페이지에서 연장하기 버튼을 눌러 주세요.</h3>
 					<img class="my-2" src='${pageContext.request.contextPath}/resources/images/info02.png' alt="좌석등록 설명3">
 				</div>

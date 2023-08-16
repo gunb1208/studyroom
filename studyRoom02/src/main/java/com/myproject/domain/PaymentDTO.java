@@ -13,6 +13,6 @@ public class PaymentDTO {
 	
 	private String buyerName; // 구매자이름
 	private String fname; // 등록번호
-	private Long amount; // 납입액
+	private int amount; // 납입액
 	
 }

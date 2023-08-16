@@ -24,15 +24,13 @@
             <div class="col-lg-6 mt-5">
                 <div class="p-5 mt-5">
                     <div class="">
-	                    <sec:authorize access="isAuthenticated()">
-		            	<sec:authentication property="principal" var="member"/>
 							<div class="mb-3">
-								<h3 class="text-muted">이용 중인 좌석 번호: ${regInfoDomain.seatNo}</h3>
+								<h3 class="text-muted">이용 중인 좌석 번호: ${regInfoDomain.seatNo}번 좌석</h3>
 								<h3 class="text-muted">나의 만료일: ${endDate}</h3>
 							</div>
-			        	</sec:authorize>
                     </div>
                     <form method="post" class="ex-form mt-3" action="exPayComplete">
+						<span class="text-danger">이용중인 사물함이 있을 시 사물함도 같이 연장됩니다.</span>
 						<select name="fno" class="period form-control mt-3">
 							<option value=""> 기간을 선택하세요 </option>
 							<option value="1">1일 요금제</option>
@@ -43,6 +41,7 @@
 					        	<input type="hidden" name="seatNo" value="${regInfoDomain.seatNo}">
 				        <input type="hidden" name="userNo" value="${member.userNo}">
 				        <input type="hidden" name="userName" value="${member.userName}">
+				        <input type="hidden" name="regNo" value="${regInfoDomain.regNo}">
 	                    <button type="button" class="btn btn-outline-warning btn-block mt-4 extBtn">결제하기</button>
                     </form>
                     <hr>
@@ -52,11 +51,20 @@
 		</div>
 	</div>
 	<script src="${pageContext.request.contextPath}/resources/js/payment.js"></script>
-	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 	<script>
 	var cp = '${pageContext.request.contextPath}';
 
 	$(function(){
+		
+		function doNotReload(){
+		    if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116) ) {
+		        event.keyCode = 0;
+		        event.cancelBubble = true;
+		        event.returnValue = false;
+		    } 
+		}
+		document.onkeydown = doNotReload;
+		
 		
 		var buyerName = '${member.userName}'; //구매자
 		
@@ -69,24 +77,21 @@
 			fname = $(".period option:selected").text(); // fname에 셀렉트 이름부여
 			console.log(fno); 
 			console.log(fname);
-			paymentService.feeFindBy({fno:fno, cp:cp}, function(result){ //fno로 해당하는 feeVO 찾는 함수
+			paymentService.feeFindBy({fno:fno, cp:cp}, function(result){ //fno로 해당하는 feeDomain 찾는 함수
 				console.log(result);
-				amount = result.price; // amount에 feeVO의가격부여
-				period = result.period; // period에 feeVO의가격부여
+				amount = result.price; // amount에 feeDomain의가격부여
+				period = result.period; // period에 feeDomain의가격부여
 				console.log(amount);
 				console.log(period);
 			});
-			
-			
-				
 		})
 		
 		$(".extBtn").click(function(){
-			// var IMP = window.IMP; // 생략가능
-			IMP.init('imp80283846'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+			var IMP = window.IMP; // 생략가능
+			IMP.init('imp66686777'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 				
 			IMP.request_pay({
-			    pg : 'kakaopay', // version 1.1.0부터 지원.
+			    pg : 'inicis', // version 1.1.0부터 지원.
 			    pay_method : 'card',
 			    merchant_uid : 'merchant_' + new Date().getTime(),
 			    name :  fname ,
@@ -96,7 +101,7 @@
 			    //buyer_tel : '010-1234-5678',
 			    //buyer_addr : '서울특별시 강남구 삼성동',
 			    //buyer_postcode : '123-456',
-			    /* m_redirect_url : 'https://www.yourdomain.com/payments/complete' */
+			    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
 			}, function(rsp) {
 			    if ( rsp.success ) {
 			        var msg = '결제가 완료되었습니다.';
@@ -105,7 +110,8 @@
 			        msg += '결제 금액 : ' + rsp.paid_amount;
 			        msg += '카드 승인번호 : ' + rsp.apply_num;
 			        
-			        
+			        console.log();
+			        console.log();
 			        
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
