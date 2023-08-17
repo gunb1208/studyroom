@@ -1,22 +1,14 @@
 package com.myproject.domain;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import lombok.Data;
 
-/**
- * 게시판 VO
- *
- * @author 여름
- * @date   2021. 5. 18.
- */
 
 @Data
 public class BoardDomain {
 	// 글번호, 제목, 작성자, 내용
-	private Long bno;
+	private Integer bno;
 	private String title;
 	private String writer;
 	private String content;
@@ -27,10 +19,10 @@ public class BoardDomain {
 	private boolean secret;
 
 	// 부모글 번호 : 원글은 0, 답글은 부모글 번호
-	private Long parentNo;  
+	private Integer parentNo;  
 
 	// 글 그룹번호
-	private Long groupNo;
+	private Integer groupNo;
 
 	// 조회수, 작성일
 	private int hitCount;

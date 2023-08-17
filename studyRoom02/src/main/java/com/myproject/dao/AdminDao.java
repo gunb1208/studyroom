@@ -3,6 +3,8 @@ package com.myproject.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.myproject.domain.AddressDomain;
 import com.myproject.domain.BoardDomain;
 import com.myproject.domain.Criteria;
@@ -11,7 +13,7 @@ import com.myproject.domain.PaymentDomain;
 import com.myproject.domain.RegInfoDomain;
 import com.myproject.domain.SeatDomain;
 
-
+@Mapper
 public interface AdminDao {
 	
 	List<RegInfoDomain> itemStatus(); // 상품 현황 조회 
@@ -30,11 +32,11 @@ public interface AdminDao {
 	
 	AddressDomain memberAddr(int userNo); // 번호로 회원 주소 조회
 	
-	void updateMember(MemberDomain memberDomain); // 회원 정보 수정
-	void deleteAddr(MemberDomain memberDomain);
-	void updateAddr(AddressDomain addressDomain);
+	void updateMember(MemberDomain memberVO); // 회원 정보 수정
+	void deleteAddr(MemberDomain memberVO);
+	void updateAddr(AddressDomain addressVO);
 	
-	void updateRegPP(RegInfoDomain regInfoDomain); // 등록 정보 수정
+	void updateRegPP(RegInfoDomain regInfoVO); // 등록 정보 수정
 	
 	int getMemberTotalCount(Criteria cri); // 회원 총 개수
 	
@@ -44,11 +46,10 @@ public interface AdminDao {
 	
 	int getPaymentTotalCount(Criteria cri); // 총 결제내역 수 
 	
-	MemberDomain sendMessage(); // 5일 남은 회원 불러오기
+	MemberDomain sendMessage(); // 3일 남은 회원 불러오기
 
-	int deleteSeat(RegInfoDomain regInfoDomain);
-	int updateSeat(RegInfoDomain regInfoDomain); // 좌석 변경 (이용 등록 정보 수정)
-	
+	int deleteSeat(RegInfoDomain regInfoVO);
+	int updateSeat(RegInfoDomain regInfoVO); // 좌석 변경 (이용 등록 정보 수정)
 	
 	List<BoardDomain> getNotiList(); // 공지사항 20개 불러옴
 	
@@ -62,8 +63,5 @@ public interface AdminDao {
 	
 	List<Map<String, Object>> getSeatPlanList();
 	
-	int deleteRegInfo(Long userNo);
-	
-	int deleteLocInfo(Long userNo);
-	
+	int deleteRegInfo(Integer userNo);
 }

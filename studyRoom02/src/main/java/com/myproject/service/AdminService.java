@@ -57,7 +57,5 @@ public interface AdminService {
 	
 	List<Map<String, Object>> showSeatPlanInfo();
 	
-	void revokeTheRegistration(Long userNo);
-	
 	
 }

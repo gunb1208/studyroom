@@ -3,6 +3,7 @@ package com.myproject.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,23 +20,20 @@ import com.myproject.domain.SeatDomain;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import xyz.sumtplus.adminDao.LockerDao;
-import xyz.sumtplus.domain.LockerDomain;
 
 
-/**
- * 관리자의 서비스Impl입니다
- *
- * @author 박재우
- * @Date   2021. 5. 18.
- */
-@Service
+
 @Log4j2
-@AllArgsConstructor
+@Service
+//@AllArgsConstructor
 public class AdminServiceImpl implements AdminService{
+	
+	@Autowired
 	private AdminDao adminDao;
+	@Autowired
 	private MemberDao memberDao;
-	private SeatDao seatDao;
+//	@Autowired
+//	private SeatDao seatDao;
 	
 	public List<RegInfoDomain> itemStatus() {
 		// TODO Auto-generated method stub
@@ -90,7 +88,7 @@ public class AdminServiceImpl implements AdminService{
 		log.warn("updateMember()...");
 		adminDao.updateMember(memberDomain);
 		
-		Long userNo = memberDao.findUserNoBy(memberDomain.getUserId()); 
+		int userNo = memberDao.findUserNoBy(memberDomain.getUserId()); 
 		
 		memberDomain.getAddress().setUserNo(userNo);
 		log.warn(memberDomain.getAddress());
@@ -106,9 +104,7 @@ public class AdminServiceImpl implements AdminService{
 		log.warn("updateRegPP()....");
 		adminDao.updateRegPP(regInfoDomain);
 		adminDao.deleteSeat(regInfoDomain);
-		adminDao.deleteLocker(regInfoDomain);
 		adminDao.updateSeat(regInfoDomain);
-		adminDao.updateLocker(regInfoDomain);
 	}
 
 	@Override
@@ -159,11 +155,6 @@ public class AdminServiceImpl implements AdminService{
 		log.warn("get Contact total count...");
 		return adminDao.getMemberContactTotalCount(cri);
 	}
-	@Override
-	public List<LockerDomain> getEmptyLockerList() {
-		log.info("Service:: getEmptySeatList");
-		return adminDao.getEmptyLockerList();
-	}
 	
 	@Override
 	public List<SeatDomain> getEmptySeatList() {
@@ -191,68 +182,19 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 
-	/**
-	 * 회원 중 좌석/사물함 미등록 회원 목록 조회
-	 * @author 김보경
-	 * @Date 2021. 5. 28.
-	 */
 	@Override
 	public List<MemberDomain> getUnregListTest(Criteria cri) {
 		return adminDao.getUnregList(cri);
 	}
 
-	/**
-	 * 좌석배치도에 이용 중인 상태와 회원 이름과 만료일 보여주는 메서드
-	 * (관리자-좌석관리에서 이용)
-	 * @author 김보경
-	 * @Date 2021. 5. 29.
-	 */
 	@Override
 	public List<Map<String, Object>> showSeatPlanInfo() {
 		log.warn(adminDao.getSeatPlanList());
 		return adminDao.getSeatPlanList();
 	}
 
-	/**
-	 * 좌석배치도에서 이용 중인 회원의 등록을 취소하는 메서드
-	 * (관리자-좌석관리에서 이용)
-	 * @author 김보경
-	 * @Date 2021. 5. 31.
-	 */
-	@Override
-	@Transactional
-	public void revokeTheRegistration(Long userNo) {
-		log.warn("등록 취소 될 회원 번호:: " + userNo);
-		adminDao.deleteRegInfo(userNo);
-		/* 이용 중이던 좌석/사물함 빈 상태로 변경 트랜잭션 */
-		seatDao.delInfoupdateSeat(userNo);
-		lockerDao.delInfoupdateLocker(userNo);
-	}
 	
-	/**
-	 * 사물함 배치도에 이용 중인 상태와 회원 이름과 만료일 보여주는 메서드
-	 * (관리자-사물함관리에서 이용)
-	 * @author 김보경
-	 * @Date 2021. 6. 1.
-	 */
-	@Override
-	public List<Map<String, Object>> showLockerPlanInfo() {
-		log.warn(adminDao.getLockerPlanList());
-		return adminDao.getLockerPlanList();
-	}
 
-	/**
-	 * 사물함배치도에서 이용 중인 사물함 등록을 취소하는 메서드
-	 * (관리자-사물함관리에서 이용)
-	 * @author 김보경
-	 * @Date 2021. 6. 1.
-	 */
-	@Override
-	@Transactional
-	public void revokeLocker(Long userNo) {
-		log.warn(adminDao.deleteLocInfo(userNo));
-		lockerDao.delInfoupdateLocker(userNo);
-	}
 
 	
 }

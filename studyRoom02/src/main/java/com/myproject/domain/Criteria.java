@@ -12,13 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Criteria {
 	private int pageNum = 1;
-	private int amount = 10; // 12 -> 10으로 수정 (김보경)
+	private int amount = 10; // 12 -> 10으로 수정
 	private int category = 1;
 	
 	private String type;
 	private String keyword;
-	private String startDate = "210505";
-	private String endDate = "221231";
+	private String startDate = "230101";
+	private String endDate = "231231";
 	
 	
 	public Criteria(Integer pageNum, Integer amount) {

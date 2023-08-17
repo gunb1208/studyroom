@@ -12,7 +12,7 @@
 
     <!-- Favicons -->
 	<link href="${pageContext.request.contextPath}/resources/images/favicon.png" rel="icon">
-    <title>작살독서실 관리자</title>
+    <title>YS독서실 관리자</title>
     <!-- Custom CSS -->
     <link href="${pageContext.request.contextPath}/resources/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <div class="navbar-brand">
+                    <div class="navbar-brand d-flex justify-content-center">
                         <div class="logo_container">
 							<div class="logo">
 								<a href="${pageContext.request.contextPath}/index">
