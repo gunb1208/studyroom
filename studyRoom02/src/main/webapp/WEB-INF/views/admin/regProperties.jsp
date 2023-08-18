@@ -74,7 +74,6 @@
                         					</label>
 		                                    <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
                               				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-                              				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 		                                </form>
 			                        </li>
 		                        </ul>
@@ -89,7 +88,6 @@
                                                 <th scope="col">시작일</th>
                                                 <th scope="col">종료일</th>
                                                 <th scope="col">좌석번호</th>
-                                                <th scope="col">사물함번호</th>
                                                 <th scope="col">요금제 번호</th>
                                                 <th scope="col">요금제 이름</th>
                                             </tr>
@@ -103,7 +101,6 @@
                                      			<td><fmt:formatDate value="${regPP.startDate}" /></td>
                                      			<td><fmt:formatDate value="${regPP.endDate}" /></td>
                                      			<td><c:out value="${regPP.seatNo}"/></td>
-                                     			<td><c:out value="${regPP.lockerNo}"/></td>
                                      			<td><c:out value="${regPP.fno}"/></td>
                                      			<td><c:out value="${regPP.feeName}"/></td>
                                      		</tr>
@@ -125,7 +122,6 @@
 	                               			</ul>
 	                               			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 	                              			<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-	                              			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 	                               		</form>
                                		</div>
                                 </div>

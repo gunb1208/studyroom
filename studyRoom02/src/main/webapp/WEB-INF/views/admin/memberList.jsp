@@ -70,7 +70,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        ${list}
                                      	<c:forEach items="${list}" var="member">
                                      		<tr>
                                      			<td><c:out value="${member.userNo}"/></td>

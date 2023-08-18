@@ -52,15 +52,14 @@
                                     <table class="table">
                                         <thead>
                                        		<tr>
-                                                <th scope="col">등록 번호</th>
-                                                <th scope="col">회원 번호</th>
-                                                <th scope="col">회원 이름</th>
-                                                <th scope="col">시작일</th>
-                                                <th scope="col">종료일</th>
-                                                <th scope="col">좌석번호</th>
-                                                <th scope="col">사물함번호</th>
-                                                <th scope="col">요금제 번호</th>
-                                                <th scope="col">요금제 이름</th>
+                                                <th scope="col" width="12.5%">등록 번호</th>
+                                                <th scope="col" width="12.5%">회원 번호</th>
+                                                <th scope="col" width="12.5%">회원 이름</th>
+                                                <th scope="col" width="12.5%">시작일</th>
+                                                <th scope="col" width="12.5%">종료일</th>
+                                                <th scope="col" width="12.5%">좌석번호</th>
+                                                <th scope="col" width="12.5%">요금제 번호</th>
+                                                <th scope="col" width="12.5%">요금제 이름</th>
                                             </tr>
                                             <tr>
                                                 <th><c:out value="${regPP.regNo}"/></th>
@@ -69,7 +68,6 @@
                                      			<th><fmt:formatDate value="${regPP.startDate}" /></th>
                                      			<th><fmt:formatDate value="${regPP.endDate}" /></th>
                                      			<th><c:out value="${regPP.seatNo}"/></th>
-                                     			<th><c:out value="${regPP.lockerNo}"/></th>
                                      			<th><c:out value="${regPP.fno}"/></th>
                                      			<th><c:out value="${regPP.feeName}"/></th>
                                             </tr>
@@ -81,33 +79,25 @@
                                         		<td></td>
                                         		<td></td>
 	                                   			<td></td>
+	                                   			<td></td>
 	                                   			<td>
-													<select id="searchMenu" name= "seatNo" class="custom-select custom-select-sm form-control form-control-sm">
+	                                   				<select id="searchMenu" name= "seatNo" class="custom-select custom-select-sm form-control form-control-sm">
 														<option value="${regPP.seatNo}">좌석 번호</option>
 														<c:forEach items="${emptySeatList}" var="seat">
 															<option value="${seat.sno}">${seat.sno}</option>
 														</c:forEach>
 													</select>
-												</td>
+	                                   			</td>
 	                                   			<td>
-													<select id="searchMenu" name= "lockerNo" class="custom-select custom-select-sm form-control form-control-sm">
-														<option value="${regPP.lockerNo}">사물함 번호</option>
-														<c:forEach items="${emptyLockerList}" var="locker">
-															<option value="${locker.lno}">${locker.lno}</option>
-														</c:forEach>
-													</select>
+				                           			<button data-oper="updateRegPP" class="btn btn-sm btn-outline-warning float-right mx-1" formaction="updateRegPP">수정 완료</button>
+				                           			<input type="hidden" name="regNo" value="${regPP.regNo}">
+				                           			<input type="hidden" name="userNo" value="${regPP.userNo}">
+				                           			<input type="hidden" name="userNo" value="${seat.userNo}">
+				                           			<input type="hidden" name="seatNo" value="${seat.sno}">
 												</td>
                                         	</tr>
                                         </tbody>
                                     </table>
-                           			<button data-oper="updateRegPP" class="btn btn-sm btn-outline-warning float-right mx-1" formaction="updateRegPP">수정 완료</button>
-                           			<input type="hidden" name="regNo" value="${regPP.regNo}">
-                           			<input type="hidden" name="userNo" value="${regPP.userNo}">
-                           			<input type="hidden" name="userNo" value="${seat.userNo}">
-                           			<input type="hidden" name="userNo" value="${locker.userNo}">
-                           			<input type="hidden" name="seatNo" value="${seat.sno}">
-                           			<input type="hidden" name="lockerNo" value="${locker.lno}">
-                           			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                                 </form>
                                 </div>
                             </div>

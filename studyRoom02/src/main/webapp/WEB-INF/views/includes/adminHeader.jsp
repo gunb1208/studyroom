@@ -118,23 +118,16 @@
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                                     class="hide-menu">회원정보</span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="${pageContext.request.contextPath}/admin/memberChart"
-                                aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
-                                    class="hide-menu">회원이용현황</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="${pageContext.request.contextPath}/admin/memberContact"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">회원에게 연락하기</span></a></li>
 
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">좌석/ 사물함 관리</span></li>
+                        <li class="nav-small-cap"><span class="hide-menu">좌석 관리</span></li>
 
                         <li class="sidebar-item"> <a class="sidebar-link" href="${pageContext.request.contextPath}/admin/admin_seat"
                                 aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
                                     class="hide-menu">좌석등록/등록취소</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link" href="${pageContext.request.contextPath}/admin/admin_locker"
-                                aria-expanded="false"><i data-feather="bar-chart" class="feather-icon"></i><span
-                                    class="hide-menu">사물함 등록취소</span></a>
                         </li>
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">등록정보관리</span></li>
@@ -145,11 +138,8 @@
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">결제관리</span></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="${pageContext.request.contextPath}/admin/paymentList"
-                                aria-expanded="false"><i data-feather="edit-3" class="feather-icon"></i><span
-                                    class="hide-menu">결제정보</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="${pageContext.request.contextPath}/admin/payChart"
-                                aria-expanded="false"><i data-feather="edit-3" class="feather-icon"></i><span
-                                    class="hide-menu">매출 현황</span></a></li>                                    
+                                aria-expanded="false"><i data-feather="dollar-sign" class="feather-icon"></i><span
+                                    class="hide-menu">결제정보</span></a></li>                                   
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

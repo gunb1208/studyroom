@@ -194,23 +194,8 @@
 		edd = to_date_format(result["endDate"],'-');
 	}
 	
-	                               				
-	
-
-		moment.locale('ko'); //언어를 한국어로 설정함!
-		/* $('#daterange').daterangepicker(
-		{
-  		 timePicker: false,
- 		 timePicker24Hour: true,
-  		 timePickerSeconds: true,
-  		 singleDatePicker: false,
-  		 locale :{ 
-    		format: 'YYYY-MM-DD',
-   			separator: ' ~ ',
-    		applyLabel: "적용",
-   			cancelLabel: "닫기"
-    	 },
-	}); */
+	      
+		moment.locale('ko');
 		
 		function FunGetFormatDate(date) {
 			var year = date.getFullYear(); //yyyy
@@ -227,8 +212,8 @@
 			'applyClass': 'btn-sm btn-success',
 			'cancelClass': 'btn-sm btn-default',
 			startDate: std,
-			minDate: '2021-05-05',
-			maxDate: '2022-12-31',  			
+			minDate: '2023-01-01',
+			maxDate: '2023-12-31',  			
 			locale: {
 				format: 'YYYY-MM-DD',
 				separator: ' ~ ',

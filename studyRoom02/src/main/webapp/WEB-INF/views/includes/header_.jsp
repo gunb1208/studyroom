@@ -62,7 +62,7 @@
 							</li>
 						</ul>
 				</c:when>
-				<c:otherwise>
+				<c:when test="${memberAuth eq 'ROLE_ADMIN'}">
 						<ul class="main_nav_list">
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/ysStudyRoom">YS독서실 소개</a></li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
@@ -75,7 +75,7 @@
 							</li>
 							<li class="main_nav_item"><a href="${pageContext.request.contextPath}/admin/admin">관리자페이지</a></li>
 						</ul>
-				</c:otherwise>
+				</c:when>
 				</c:choose>
 				</div>
 			</nav>

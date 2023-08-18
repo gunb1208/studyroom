@@ -63,5 +63,5 @@ public interface AdminDao {
 	
 	List<Map<String, Object>> getSeatPlanList();
 	
-	int deleteRegInfo(Integer userNo);
+	int deleteRegInfo(int userNo);
 }

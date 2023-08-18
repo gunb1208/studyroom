@@ -32,8 +32,8 @@ public class AdminServiceImpl implements AdminService{
 	private AdminDao adminDao;
 	@Autowired
 	private MemberDao memberDao;
-//	@Autowired
-//	private SeatDao seatDao;
+	@Autowired
+	private SeatDao seatDao;
 	
 	public List<RegInfoDomain> itemStatus() {
 		// TODO Auto-generated method stub
@@ -191,6 +191,15 @@ public class AdminServiceImpl implements AdminService{
 	public List<Map<String, Object>> showSeatPlanInfo() {
 		log.warn(adminDao.getSeatPlanList());
 		return adminDao.getSeatPlanList();
+	}
+	
+	@Override
+	@Transactional
+	public void revokeTheRegistration(int userNo) {
+		log.warn("등록 취소 될 회원 번호:: " + userNo);
+		adminDao.deleteRegInfo(userNo);
+		/* 이용 중이던 좌석/사물함 빈 상태로 변경 트랜잭션 */
+		seatDao.delInfoupdateSeat(userNo);
 	}
 
 	

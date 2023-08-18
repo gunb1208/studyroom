@@ -70,12 +70,12 @@ public class AdminController {
 
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("admin_seat")
-	public String postSeat(RegInfoDomain infoVO, Model model) {
-		log.warn("전송된 infoVO:: " + infoVO);
-		FeeDomain feeVO = paymentService.findBy(infoVO.getFno());
+	public String postSeat(RegInfoDomain regInfoDomain, Model model) {
+		log.warn("전송된 regInfoDomain:: " + regInfoDomain);
+		FeeDomain feeVO = paymentService.findBy(regInfoDomain.getFno());
 		model.addAttribute("feeVO", feeVO);
 		log.info("feeVO : " + feeVO);
-		regInfoService.RegisterRegInfo(infoVO);
+		regInfoService.RegisterRegInfo(regInfoDomain);
 		return "redirect:/admin/admin_seat";
 	}
 	
@@ -148,10 +148,10 @@ public class AdminController {
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("updateMember")
-	public String updateMember(MemberDomain memberVO, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+	public String updateMember(MemberDomain memberDomain, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.warn("회원 정보를 수정합니다...");
-		log.warn(memberVO);
-		AdminService.updateMember(memberVO);
+		log.warn(memberDomain);
+		AdminService.updateMember(memberDomain);
 		return "redirect:/admin/memberList" + cri.getListLink();
 	}
 	
@@ -163,6 +163,13 @@ public class AdminController {
 		log.warn(regInfoVO);
 		AdminService.updateRegPP(regInfoVO);
 		return "redirect:/admin/regProperties" + cri.getListLink();
+	}
+	
+	@PostMapping("revoke")
+	public String revokeReg(int userNo) {
+		log.warn("회원 번호:: " + userNo);
+		AdminService.revokeTheRegistration(userNo);
+		return "redirect:/admin/admin_seat";
 	}
 
 	

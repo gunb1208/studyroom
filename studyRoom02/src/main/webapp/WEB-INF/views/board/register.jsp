@@ -28,7 +28,7 @@
            			<div class="panel-body">
            				<form role="form" action="/board/register" method="post">
            					<div class="form-group">
-           						<input class="form-control" name='writer' required readonly value='<sec:authentication property="principal.username"/>'>
+           						<input class="form-control" name='writer' required readonly value='${member.userName}'>
            					</div>
            					<div class="form-group">
            						<input class="form-control" id="title" name='title' placeholder="제목을 입력해주세요." value="${empty board ? '' : ''.concat(board.title).concat('의 답변입니다.')}">

@@ -208,6 +208,7 @@
                     	})
                 		//등록폼 버튼 이벤트
                 		$("#addReplyBtn").click(function(){
+                			console.log('hi')
                 			$("#myModal").find("input").val("").end().find("textarea").val("").prop("readonly", false);
                 			$("#replyer").val(replyer).prop("readonly",true);
                 			$("#replyDate").closest("div").hide();

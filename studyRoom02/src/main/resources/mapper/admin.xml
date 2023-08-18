@@ -327,14 +327,14 @@
 	<!-- 등록 정보 수정 -->
 	<update id="updateRegPP">
 		UPDATE REGINFO SET 
-			SEATNO = #{seatNo},
+			SEATNO = #{seatNo}
 		WHERE USERNO = #{userNo}
 	</update>
 	
 	<!-- 좌석 정보 수정 -->
 	<update id="deleteSeat">
 		UPDATE SEAT
-		SET USERNO = 0
+		SET USERNO = null
 		,STATUS = 0
 		WHERE USERNO = #{userNo}
 	</update>

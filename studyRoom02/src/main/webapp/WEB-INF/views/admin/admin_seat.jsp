@@ -19,7 +19,7 @@
                         <div class="d-flex align-items-center">
                             <nav class="breadcrumb pl-0 mb-0">
 	                            <a class="breadcrumb-item" href="${pageContext.request.contextPath}/admin/admin">관리자 홈</a>
-	                            <span class="breadcrumb-item">좌석/사물함 관리</span>
+	                            <span class="breadcrumb-item">좌석 관리</span>
 	                            <span class="breadcrumb-item active">좌석등록/등록취소</span>
                             </nav>
                         </div>
@@ -55,7 +55,6 @@
 									  
 									  <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
                               		  <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-                              		  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 								 </form>
 
                                 <i class="mr-1 font-18 mdi mdi-numeric-1-box-multiple-outline"></i>
@@ -99,7 +98,6 @@
 	                               			</ul>
 	                               			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 	                              			<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-	                              			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 	                               		</form>
                                		</div>
                                 </div>
@@ -127,16 +125,6 @@
 								    <input type="text" class="form-control ml-2 wSno" name="seatNo" value="" readonly required>
 							  	</div>
 							</div>
-                        	
-                        	<div class="d-flex justify-content-center">
-								<div class="form-inline mb-2">
-								    <label>희망 사물함 번호:</label>
-								    <c:forEach items="${etLocker}" var="locker">
-								    	<label><input type="radio" class="form-control mx-2" name="lockerNo" value="${locker.lno}" required> ${locker.lno}번 </label>
-								    </c:forEach>
-								    <label><input type="radio" class="form-control mx-2" name="lockerNo" value="">이용 안 함</label> 
-							  	</div>
-							</div>
                         	<div class="d-flex justify-content-center">
 								<div class="form-inline mb-2">
 								    <label>희망 이용 기간:</label>
@@ -151,7 +139,6 @@
                         		<input type="hidden" name="fno" value="8">
                         		<input type="hidden" name="feeName" value="관리자 등록용">
                         	</div>
-                        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                         </form>
                         </div>
 						<!-- 좌석배치도 -->
@@ -165,7 +152,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -175,7 +162,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted border my-2">
 												<div class="card-body text-center">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -188,7 +175,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -198,7 +185,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted border my-2">
 												<div class="card-body text-center">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -211,7 +198,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -221,7 +208,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted border my-2">
 												<div class="card-body text-center">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -239,7 +226,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -249,7 +236,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted border my-2">
 												<div class="card-body text-center">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -262,7 +249,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -272,7 +259,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted border my-2">
 												<div class="card-body text-center">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -285,7 +272,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -295,7 +282,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted">
 												<div class="card-body text-center border my-2">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -308,7 +295,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -318,7 +305,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted">
 												<div class="card-body text-center border my-2">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -331,7 +318,7 @@
                         				<c:if test="${info.STATUS == 1}"> <!-- 이용중 -->
 											<div class="card bg-warning border my-2">
 												<div class="card-body text-center text-dark">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <p class="card-text">이용자: ${info.USERNAME}</p>
 												    <p class="card-text">만료일: ${formatEndDate}</p>
 												    <button type="button" class="revokeBtn btn waves-effect waves-light btn-rounded btn-outline-danger btn-sm" data-uno="${info.USERNO}">등록 취소</button>
@@ -341,7 +328,7 @@
                         				<c:if test="${info.STATUS == 0}"> <!-- 빈좌석 -->
 											<div class="card bg-muted border my-2">
 												<div class="card-body text-center border">
-												    <p class="card-text">좌석 0${info.SNO}</p>
+												    <p class="card-text">좌석 ${info.SNO}</p>
 												    <button type="button" class="sRegBtn btn btn-light" data-sno="${info.SNO}" onclick="fnMove('2')">선택</button>
 										  		</div>
 										  	</div>
@@ -350,7 +337,6 @@
 								</div>
 							</div> <!-- room1 끝 고정석-->		
                         </div> <!-- 자유석 끝 -->
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     </form> 
                     </div>
                 </div>
@@ -414,7 +400,6 @@
 		/* 좌석 등록 폼에서 등록 버튼 클릭 시 유효성 검증 */
 		$(".adSeatBtn").click(function() {
 			if($('input:text[name="seatNo"]').val() == '') alert("좌석 번호를 선택해 주세요.");
-			if($('input:radio[name="lockerNo"]').is(':checked') == false) alert("사물함 번호를 체크해 주세요.(미 이용시 '이용 안 함' 체크)");
 			if($('input:radio[name="period"]').is(':checked') == false) alert("이용 기간을 체크해 주세요.");
 			else {
 				var result = confirm("등록하시겠습니까?");

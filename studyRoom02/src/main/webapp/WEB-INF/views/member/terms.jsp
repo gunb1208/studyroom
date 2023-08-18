@@ -76,6 +76,7 @@
 
 <script>
 $(function() {
+	
 	//약관동의 
     $("#nextBtn").click(function(){   
     	event.preventDefault();
@@ -98,6 +99,12 @@ $(function() {
 			$("input[type=checkbox]").prop("checked",false); 	//해당화면의 모든 checkbox들의 체크를 해제시킨다.
 		}  
 	});
+  
+  
+  
+  
+  
+  
 }); // ready 함수 끝
 
 </script>

@@ -159,7 +159,6 @@
 			SELECT BNO, TITLE, WRITER, REGDATE, HITCOUNT, CONTENT, CATEGORY, REPLYCNT, PARENTNO
 			 FROM BOARD
 			WHERE BNO = #{bno}
-			<!-- 첨부파일추가필요 -->
   	</select>
 
 	<!-- 게시물 조회수 업데이트 -->

@@ -64,29 +64,6 @@
                                      			<td class="text-left"><c:out value="${member.tel}"/></td>
                                      			<td class="text-left"><c:out value="${member.address.addr}"/></td>
                                             </tr>
-                                        	<tr class="modify_names">
-	                                        	<%-- <td class="text-left">이메일 수정</td>
-	                                   			<td class="text-left"><input type="email" class="form-control" id="email" placeholder="작성자 입력하세요" name="email" required value="${member.email}">
-	                                   			<span id="email-no" class="my-2" style="display: none; color: #d92742; font-weight: bold;">잘못된 이메일 주소입니다.</span></td>
-	                                   			<td class="text-left">전화번호 수정</td>
-	                                   			<td class="text-left"><input type="text" class="form-control" id="tel" placeholder="작성자 입력하세요" name="tel" required value="${member.tel}">
-	                                   			<span id="tel-no" class="my-2" style="display: none; color: #d92742; font-weight: bold;">정확한 전화번호를 입력해주세요.</span></td>
-	                                        	<td class="text-left">
-									                이름 수정
-												</td>											
-												<td class="text-left"><input type="text" class="form-control" id="userName" placeholder="작성자 입력하세요" name="userName" required value="${member.userName}">
-												<span id="name-no" class="my-2" style="display: none; color: #d92742; font-weight: bold;">정확한 이름을 입력해주세요.</span></td> --%>
-												<%-- <td class="mt-1">
-													주소 수정
-												</td>
-												<td>
-													<input type="button" onclick="postfind()" class="btn btn-secondary btn-sm my-2" value="우편번호 찾기" ><br>
-													<input type="text" class="addr form-control my-2" id="post" placeholder="우편번호" readonly value="${address.post}">
-													<input type="text" class="addr form-control my-2"  id="addr" placeholder="주소" readonly  value="${address.addr}">
-													<input type="text" class="addr form-control my-2" id="detail" placeholder="상세주소" value="${address.detail}">
-													<input type="text" class="addr form-control my-2" id="extra" placeholder="참고항목" readonly value="${address.extra}">
-												</td> --%>
-                                        	</tr>
                                         	<tr>
                                         	</tr>
                                         </tbody>
