@@ -33,17 +33,6 @@
 					</c:choose>
 				</ul>
 
-				<!-- Menu Social -->
-				
-<!-- 				<div class="menu_social_container menu_mm">
-					<ul class="menu_social menu_mm">
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-					</ul>
-				</div> -->
 
 				<div class="menu_copyright menu_mm">(주) 스토리아이엔지 All rights reserved</div>
 			</div>
@@ -65,7 +54,7 @@
 					<div class="hero_slide_background" style="background-image:url(${pageContext.request.contextPath}/resources/images/slider_background.jpg)"></div>
 					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut"><span>마음먹음</span> 을 실천할 수 있는 공간</h1>
+							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">마음먹음을 실천할 수 있는 공간</h1>
 						</div>
 					</div>
 				</div>
@@ -75,14 +64,11 @@
 					<div class="hero_slide_background" style="background-image:url(${pageContext.request.contextPath}/resources/images/slider_background.jpg)"></div>
 					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">모든 이들의 <span>마음먹음</span> 을 지지합니다.</h1>
+							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">모든 이들의 마음먹음을 지지합니다.</h1>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200">prev</span></div>
-			<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">next</span></div>
 		</div>
 
 	</div>
@@ -278,72 +264,7 @@
 		</div>
 
 
-<%-- 	<!-- Services -->
 
-	<div class="services page_section">
-		
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title text-center">
-						<h1>Our Services</h1>
-					</div>
-				</div>
-			</div>
-
-			<div class="row services_row">
-
-				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="${pageContext.request.contextPath}/resources/images/earth-globe.svg" alt="">
-					</div>
-					<h3>Online Courses</h3>
-					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-				</div>
-
-				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="${pageContext.request.contextPath}/resources/images/exam.svg" alt="">
-					</div>
-					<h3>Indoor Courses</h3>
-					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-				</div>
-
-				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="${pageContext.request.contextPath}/resources/images/books.svg" alt="">
-					</div>
-					<h3>Amazing Library</h3>
-					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-				</div>
-
-				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="${pageContext.request.contextPath}/resources/images/professor.svg" alt="">
-					</div>
-					<h3>Exceptional Professors</h3>
-					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-				</div>
-
-				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="${pageContext.request.contextPath}/resources/images/blackboard.svg" alt="">
-					</div>
-					<h3>Top Programs</h3>
-					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-				</div>
-
-				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
-					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="${pageContext.request.contextPath}/resources/images/mortarboard.svg" alt="">
-					</div>
-					<h3>Graduate Diploma</h3>
-					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-				</div>
-
-			</div>
-		</div>
-	</div>	 --%>
 
 	<!-- Popular -->
 
@@ -432,39 +353,7 @@
        </div>
 	</div>		
 
-<%-- 	<!-- Register -->
 
-	<div class="register">
-
-		<div class="container-fluid">
-			
-			<div class="row row-eq-height">
-				<div class="col-lg-6 nopadding">
-					
-					<div class="register_section d-flex flex-column align-items-center justify-content-center">
-						<div class="register_content text-center">
-						
-						
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-lg-6 nopadding">
-					
-					<!-- Search -->
-
-					<div class="search_section d-flex flex-column align-items-center justify-content-center">
-						<div class="search_background" style="background-image:url(${pageContext.request.contextPath}/resources/images/search_background.jpg);"></div>
-						<div class="search_content text-center">
-						</div> 
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
- --%>
 
 
 

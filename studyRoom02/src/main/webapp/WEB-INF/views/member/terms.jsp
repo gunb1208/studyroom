@@ -9,11 +9,8 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		</div>
-		<div class="home_content">
-			<h1>Terms</h1>
-		</div>
 	</div>
-	<h1 class="mt-4 mb-4" style="text-align: center;">약관동의</h1>
+	<h1 class="my-5 text-warning" style="text-align: center;">약관동의</h1>
 		<form action="${pageContext.request.contextPath}/member/join" id="terms_form">
             <ul class="join_box pl-0">
                 <li class="checkBox check02">
@@ -69,7 +66,7 @@
             </ul>
             <div class="footBtwrap clearfix pl-0 mb-5">
             	<label class="float-right"><input class="mr-2 chkAll" type="checkbox">전체 동의하기</label>
-                <button id="nextBtn" class="fpmgBt2">다음</button>
+                <button id="nextBtn" class="btn btn-warning my-5 text-white">다음</button>
             </div>
         </form>
 <jsp:include page="../includes/footer.jsp" />

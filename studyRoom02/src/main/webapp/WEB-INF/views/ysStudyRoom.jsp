@@ -6,17 +6,17 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		</div>
-		<div class="home_content">
-			<h1>YS독서실 소개</h1>
-		</div>
 	</div>
 
 	<!-- News -->
 
 	<div class="news">
 		<div class="container">
+		<div class="d-flex justify-content-center text-warning mb-5">
+			<h1>YS독서실 소개</h1>
+		</div>
 		<!-- 본문 시작 -->
-			<div class="row-10 mt-1" style="text-align:center;">
+			<div class="row-10 mb-5" style="text-align:center;">
 					<h2>YS 독서실</h2>
 				<span class="text-danger">회원제로 운영되는 프리미엄 학습공간, YS 독서실입니다.</span>
 			</div>
@@ -43,7 +43,7 @@
 	
 					</div>
 	
-					<img class="my-2" src='${pageContext.request.contextPath}/resources/images/title_Image.jpg'>				
+					<img class="my-2" src='${pageContext.request.contextPath}/resources/images/title_Image1.png'>				
 					<!-- 타이틀 이미지 -->				
 					
 					

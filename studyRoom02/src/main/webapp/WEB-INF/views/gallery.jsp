@@ -10,9 +10,6 @@
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		
 		</div>
-		<div class="home_content">
-			<h1>시설 안내</h1>
-		</div>
 	</div>
 
 	<!-- News -->
@@ -33,11 +30,14 @@
 	<div class="news">
 		<div class="container">
 <div class="container">
+	<div class="d-flex justify-content-center text-warning mb-5">
+		<h1>시설 안내</h1>
+	</div>
     <div class="row">
         <div class="col-12">
-            <h1 class="page-title">시설 및 편의 제공</h1>
+            <h2 class="page-title">시설 및 편의 제공</h2>
         <h2 class="gallery-title">1 층</h2>
-        <div class="row">
+        <div class="row mb-5">
         
            	<!-- 1 신발장 2 입구 3 좌석 4 좌석 조명 5 사물함 6 기기 대여
             7 라운지 8 카페 9 PC 이용 10 주차 -->
@@ -106,7 +106,7 @@
         
         
         <h2 class="gallery-title">2 층</h2>
-        <div class="row">
+        <div class="row mb-5">
         
  		    <!-- 라운지 -->
             <a href="${pageContext.request.contextPath}/resources/images/gallery_7.jpg" 

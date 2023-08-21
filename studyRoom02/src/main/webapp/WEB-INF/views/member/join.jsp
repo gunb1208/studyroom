@@ -11,12 +11,11 @@
             <div class="home_background_container prlx_parent">
                <div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
             </div>
-            <div class="home_content">
-               <h1>회원가입</h1>
-            </div>
           </div>
            <form id="join_form" class="form-horizontal" method="post" action="${pageContext.request.contextPath}/member/join">
-              <div class="mt-3 mb-3" style="font-size:2vw; text-align: center">회원가입</div>
+              <div class="my-5" style="font-size:2vw; text-align: center">
+              	<h1 class="text-warning">회원가입</h1>
+              </div>
 					<div>아이디</div>
 					<div>
 	                  	<div class="input-group">
@@ -56,23 +55,31 @@
 		                <span id="tel-no" class="my-2" style="display: none; color: #d92742; font-weight: bold;">정확한 전화번호를 입력해주세요.</span></div>       
 		            </div>
 		            <div>
-		                <div class="mt-1">주소</div>
+		                <div class="my-1">주소</div>
 					<div>
-						<input type="button" onclick="postfind()" class="btn btn-secondary btn-sm my-2" value="우편번호 찾기" ><br>
-						<input type="text" class="addr form-control my-2" id="post" placeholder="우편번호" readonly>
+						<div class="row">
+							<div class="col-md-10">
+								<input type="text" class="addr form-control" id="post" placeholder="우편번호" readonly>
+							</div>
+							<div class="col-md-2 d-flex justify-content-end">
+								<div class="d-flex align-self-center">
+									<input type="button" onclick="postfind()" class="btn btn-secondary btn-sm" value="우편번호 찾기">
+								</div>
+							</div>
+						</div>
 						<input type="text" class="addr form-control my-2"  id="addr" placeholder="주소" readonly >
 						<input type="text" class="addr form-control my-2" id="detail" placeholder="상세주소" >
 						<input type="text" class="addr form-control my-2" id="extra" placeholder="참고항목" readonly >
 					</div>      
 				</div>
 				<div>
-		            <div colspan="2">
-		               <button class="btn btn-primary btn-block my-3" type="submit" id="signUp">가입하기 </button>
+		            <div class="mt-5">
+		               <button class="btn btn-warning text-white btn-block my-3" type="submit" id="signUp">가입하기 </button>
 		            </div>
 		        </div>
 		    <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
 		</form>
-		<div style="text-align: center;">
+		<div style="text-align: center;" class="my-5">
 		   <p class="mediuen">독서실의 회원이십니까? <a href="${pageContext.request.contextPath}/member/login">로그인 하기</a></p>
 		</div>
 <jsp:include page="../includes/footer.jsp" />
