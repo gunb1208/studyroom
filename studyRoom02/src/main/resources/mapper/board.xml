@@ -114,8 +114,8 @@
 
 	<!--작성 -->
   	<insert id="insert">
-	  	INSERT INTO BOARD (BNO, TITLE, WRITER, CONTENT, CATEGORY, SECRET) 
-			VALUES (SEQ_BOARD.NEXTVAL, #{title}, #{writer}, #{content}, #{category}, #{secret})
+	  	INSERT INTO BOARD (BNO, TITLE, WRITER, CONTENT, CATEGORY, SECRET, HITCOUNT, REGDATE) 
+			VALUES (SEQ_BOARD.NEXTVAL, #{title}, #{writer}, #{content}, #{category}, #{secret}, 0, SYSDATE)
   	</insert>
   	
   	
@@ -124,8 +124,8 @@
   		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
   			SELECT SEQ_BOARD.NEXTVAL FROM DUAL
   		</selectKey>
-  		INSERT INTO BOARD (BNO, TITLE, WRITER, CONTENT, CATEGORY, PARENTNO, GROUPNO)
-  		VALUES (#{bno}, #{title}, #{writer}, #{content}, #{category}, #{parentNo}, #{bno})
+  		INSERT INTO BOARD (BNO, TITLE, WRITER, CONTENT, CATEGORY, PARENTNO, GROUPNO, HITCOUNT, REGDATE)
+  		VALUES (#{bno}, #{title}, #{writer}, #{content}, #{category}, #{parentNo}, #{bno}, 0, SYSDATE)
   	</insert>
   	
   	
@@ -134,8 +134,8 @@
   		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
   			SELECT SEQ_BOARD.NEXTVAL FROM DUAL
   		</selectKey>
-  		INSERT INTO BOARD (BNO, TITLE, WRITER, CONTENT, CATEGORY, PARENTNO, GROUPNO)
-  		VALUES (#{bno}, #{title}, #{writer}, #{content}, #{category}, #{parentNo}, #{groupNo})
+  		INSERT INTO BOARD (BNO, TITLE, WRITER, CONTENT, CATEGORY, PARENTNO, GROUPNO, HITCOUNT, REGDATE)
+  		VALUES (#{bno}, #{title}, #{writer}, #{content}, #{category}, #{parentNo}, #{groupNo}, 0, SYSDATE)
   	</insert>
   	
   	

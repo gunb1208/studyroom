@@ -4,8 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-//@ComponentScan(basePackages = {"com.myproject.security.CustomUserDetailsService"})
-//@ComponentScan(basePackages = {"com.myproject.dao.SeatDao", "com.myproject.dao.RegInfoDao"})
 @SpringBootApplication
 public class StudyRoom02Application {
 

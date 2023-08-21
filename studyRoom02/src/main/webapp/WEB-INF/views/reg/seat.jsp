@@ -9,9 +9,6 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		</div>
-		<div class="home_content">
-			<h1>좌석 등록/이용</h1>
-		</div>
 	</div>
 
 	<!-- News -->
