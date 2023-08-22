@@ -18,7 +18,7 @@
 		<div class="menu_inner menu_mm">
 			<div class="menu menu_mm">
 				<ul class="menu_list menu_mm">
-					<li class="menu_item menu_mm"><a href="#">YS독서실 소개</a></li>
+					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/ysStudyRoom">YS독서실 소개</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/gallery">시설 안내</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/aboutUs">이용 안내</a></li>
 					<li class="menu_item menu_mm"><a href="${pageContext.request.contextPath}/item/seat">좌석등록/이용</a></li>
@@ -93,7 +93,7 @@
 							<img src="${pageContext.request.contextPath}/resources/images/books.svg" class="svg" alt="">
 							<div class="hero_box_content">
 								<h2 class="hero_box_title">이용 등록/안내</h2>
-								<a href="/item/seat" class="hero_box_link">더보기</a>
+								<a href="/reg/seat" class="hero_box_link">더보기</a>
 							</div>
 						</div>
 					</div>

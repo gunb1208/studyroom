@@ -25,11 +25,9 @@
 						<div class="logo_container">
 							<div class="logo">
 								<%-- <img src="${pageContext.request.contextPath}/resources/images/logo.png" alt=""> --%>
-								<span>독서실</span>
+								<span>YS독서실</span>
 							</div>
 						</div>
-
-						<!-- <p class="footer_about_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum, tempor lacus.</p> -->
 
 					</div>
 
@@ -48,20 +46,6 @@
 						</div>
 					</div>
 
-					<!-- Footer Column - Usefull Links -->
-
-<!-- 					<div class="col-lg-3 footer_col">
-						<div class="footer_column_title">Usefull Links</div>
-						<div class="footer_column_content">
-							<ul>
-								<li class="footer_list_item"><a href="#">Testimonials</a></li>
-								<li class="footer_list_item"><a href="#">FAQ</a></li>
-								<li class="footer_list_item"><a href="#">Community</a></li>
-								<li class="footer_list_item"><a href="#">Campus Pictures</a></li>
-								<li class="footer_list_item"><a href="#">Tuitions</a></li>
-							</ul>
-						</div>
-					</div> -->
 
 					<!-- Footer Column - Contact -->
 

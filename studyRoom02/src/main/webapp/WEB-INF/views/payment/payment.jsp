@@ -7,20 +7,14 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		</div>
-		<div class="home_content">
-			<h1>결제확인</h1>
-		</div>
 	</div>
 
 	<!-- News -->
 
 	<div class="container d-flex justify-content-center my-5">
 		<div class="card">
-			<div class="card-header">
+			<div class="card-header ">
 				<h2 class="card-title">결제 정보</h2>
-				<%-- <p>${regInfoDomain}
-				<p>${feeDomain}<p>
-				<p>${feeDomain2}<p> --%>
 			</div>
 			<div class="card-body row">
 				<img class="col-3" src="/resources/images/desk.jpg" >

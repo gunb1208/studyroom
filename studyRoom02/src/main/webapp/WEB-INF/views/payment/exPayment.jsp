@@ -8,18 +8,20 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		</div>
-		<div class="home_content">
-			<h1>이용 기간 연장</h1>
-		</div>
 	</div>
 
 	<!-- News -->
 
 	<div class="news">
 		<div class="container">
+		
+		<div class="d-flex justify-content-center text-warning mb-5">
+			<h1>이용기간 연장</h1>
+		</div>
+		
 			<div class="row">
-			<div class="col-lg-6 d-none d-lg-block">
-				<img class="img-fluid" src="${pageContext.request.contextPath}/resources/images/logo_transparent.png" alt="logo" width="600px">
+			<div class="col-lg-6 d-none d-lg-block align-self-center">
+				<img class="img-fluid" src="${pageContext.request.contextPath}/resources/images/logo.png" alt="logo" width="600px">
 			</div>
             <div class="col-lg-6 mt-5">
                 <div class="p-5 mt-5">
@@ -30,7 +32,6 @@
 							</div>
                     </div>
                     <form method="post" class="ex-form mt-3" action="exPayComplete">
-						<span class="text-danger">이용중인 사물함이 있을 시 사물함도 같이 연장됩니다.</span>
 						<select name="fno" class="period form-control mt-3">
 							<option value=""> 기간을 선택하세요 </option>
 							<option value="1">1일 요금제</option>

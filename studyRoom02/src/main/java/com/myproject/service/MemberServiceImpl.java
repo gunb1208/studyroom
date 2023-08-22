@@ -4,9 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.myproject.dao.AdminDao;
 import com.myproject.dao.MemberDao;
+import com.myproject.dao.PaymentDao;
+import com.myproject.dao.SeatDao;
 import com.myproject.domain.AuthDomain;
+import com.myproject.domain.MemberDTO;
 import com.myproject.domain.MemberDomain;
 
 import lombok.extern.log4j.Log4j2;
@@ -17,10 +22,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDao memberDao;
-
-//	@Autowired
-//	private PasswordEncoder encoder;
-	
+	@Autowired
+	SeatDao seatDao;
+	@Autowired
+	AdminDao adminDao;
+	@Autowired
+	PaymentDao paymentDao;
 	
 	
 	@Override
@@ -62,6 +69,31 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 		
 	}
+	
+	@Override
+	public int withdraw(int userNo) {
+		log.warn("등록 취소 될 회원 번호:: " + userNo);
+		
+		paymentDao.delete(userNo);
+		adminDao.deleteRegInfo(userNo);
+		seatDao.delInfoupdateSeat(userNo);
+		
+		memberDao.deleteAuth(userNo);
+		
+		return memberDao.delete(userNo);
+	}
+
+	@Transactional
+	@Override
+	public int deactivate(int userNo) {
+		log.warn("등록 취소 될 회원 번호:: " + userNo);
+		
+		paymentDao.delete(userNo);
+		adminDao.deleteRegInfo(userNo);
+		seatDao.delInfoupdateSeat(userNo);
+
+		return memberDao.update(userNo);
+	}
 
 	@Override
 	public MemberDomain findByUserNo(int userNo) {
@@ -76,9 +108,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberDomain login(MemberDomain memberDomain) {
+	public MemberDomain login(MemberDTO memberDTO) {
 		
-		return memberDao.login(memberDomain);
+		return memberDao.login(memberDTO);
 	}
 	
 }

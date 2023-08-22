@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.myproject.domain.FeeDomain;
 import com.myproject.domain.MemberDomain;
@@ -36,13 +37,23 @@ public class PaymentController {
 	private RegInfoService reginfoservice;
 	
 	@GetMapping("payment")
-	public void getPayment() {
+	public String getPayment(@SessionAttribute(name = "memberId", required = false) String userId) {
 		log.info("payment..");
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
+		return "payment/payment";
 	}
 	
 	@PostMapping("payment")
-//	@PreAuthorize("principal.vo.userNo == #regInfoDomain.userNo")
-	public void postPayment(RegInfoDomain regInfoDomain, Integer fno2, Model model) {
+	public String postPayment(RegInfoDomain regInfoDomain, Integer fno2, Model model,
+			@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
 		
 		log.info("payment..." + regInfoDomain);
 		
@@ -57,11 +68,27 @@ public class PaymentController {
 			}
 		
 		reginfoservice.RegisterTmpReg(regInfoDomain);
+		
+		return "payment/payment";
+	}
+	
+	@GetMapping("payComplete")
+	public String getPayComplete(@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
+		return "payment/payComplete";
 	}
 	
 	@PostMapping("payComplete")
-//	@PreAuthorize("principal.vo.userNo == #regInfoDomain.userNo")
-	public void payComplete(PaymentDomain paymentDomain, RegInfoDomain regInfoDomain, Model model) {
+	public String payComplete(PaymentDomain paymentDomain, RegInfoDomain regInfoDomain, Model model,
+			@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
 		
 		log.info("payment......");
 		log.info("reginfoDomain" + regInfoDomain);
@@ -71,41 +98,18 @@ public class PaymentController {
 		model.addAttribute("regNo", regNo);
 		
 		log.info("regNo..." + regNo);
+
+		return "payment/payComplete";
 	}
-	
-	@GetMapping("payComplete")
-	public void getPayComplete() {
-		
-	}
-	
-	@GetMapping("expayComplete")
-	public void getExpayComplete() {
-		
-	}
-	
-//	@PostMapping("expayComplete")
-////	@PreAuthorize("principal.vo.userNo == #regInfoDomain.userNo")
-//	public void payExComplete(PaymentDomain paymentDomain, RegInfoDomain regInfoDomain, Model model) {
-//		
-//		log.info("payment......");
-//		log.info("reginfoDomain" + regInfoDomain);
-//		log.info("paymentDomain" + paymentDomain);
-//		
-//		paymentservice.extendPayment(paymentDomain, regInfoDomain);
-//		
-////		model.addAttribute("regNo", regNo);
-////		log.info("regNo..." + regNo);
-//	}
-	
-	@GetMapping("payTest")
-	public void payTest() {
-		log.info("payTest..");
-	}
-	
 	
 	@GetMapping("exPayment")
-	public void getExPayment(Model model, HttpServletRequest request) {
+	public String getExPayment(Model model, HttpServletRequest request, @SessionAttribute(name = "memberId", required = false) String userId) {
 		log.info("기간 연장 결제 페이지..");
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
 		/* 만료일의 날짜 포맷을 변경하는 작업*/
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -121,13 +125,28 @@ public class PaymentController {
 		model.addAttribute("regInfoDomain", regInfoDomain);
 		model.addAttribute("endDate",endDate);
 		model.addAttribute("feeDomain", feeDomain);
+		
+		return "payment/exPayment";
 	}
-	/*
-	 * 연장결제완료페이지이동컨트롤러
-	 */
-//	@PreAuthorize("principal.vo.userNo == #regInfoDomain.userNo")
+	
+
+	@GetMapping("expayComplete")
+	public String getExpayComplete(@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
+		return "payment/expayComplete";
+	}
+	
 	@PostMapping("exPayComplete")
-	public void postExPayComplete(RegInfoDomain regInfoDomain, PaymentDomain paymentDomain, Model model) {
+	public String postExPayComplete(RegInfoDomain regInfoDomain, PaymentDomain paymentDomain, Model model,
+			@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
 		
 		log.info("exPayment......");
 		log.info("regInfoDomain" + regInfoDomain);
@@ -138,7 +157,11 @@ public class PaymentController {
 		
 		/*연장실행 - 결제 및 기간연장*/
 		paymentservice.extendPayment(paymentDomain, regInfoDomain);
+		
+		return "payment/exPayComplete";
 	}
+	
+	
 	/*
 	 * fno로 요금제테이블의 정보를 가져오기 위한 페이지
 	 */
@@ -149,6 +172,12 @@ public class PaymentController {
 		log.info("getFee......" + fno);
 		return paymentservice.findBy(fno);
 		
+	}
+	
+	
+	@GetMapping("payTest")
+	public void payTest() {
+		log.info("payTest..");
 	}
 	
 	

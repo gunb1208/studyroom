@@ -29,7 +29,7 @@
 
 	<!-- Header -->
 
-	<header class="header d-flex flex-row">
+	<header class="header d-flex flex-row" style="border-radius: 10px;">
 		<div class="header_content d-flex flex-row align-items-center">
 			<!-- Logo -->
 			<div class="logo_container px-4">
@@ -75,7 +75,7 @@
 				</div>
 			</nav>
 		</div>
-		<div class="header_side d-flex flex-row justify-content-center align-items-center">
+		<div class="header_side d-flex flex-row justify-content-center align-items-center" style="border-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
 		<c:choose>
 			<c:when test="${member eq null}">
 				<div class="main_nav">
@@ -91,7 +91,7 @@
 				<!-- Nav Item - User Information -->
 				<h4 class="nav-link dropdown-toggle mt-3 pt-1" href="#" id="userDropdown" role="button" 
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">    
-					<a class="text-white">${member.userName}님 환영합니다.</a></h4>
+					<a class="text-white">${memberName}님 환영합니다.</a></h4>
 				<!-- Dropdown - User Information -->
 				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 					<form method="post" action="${pageContext.request.contextPath}/member/logout" >

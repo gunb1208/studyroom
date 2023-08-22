@@ -18,6 +18,14 @@ public class IndexController {
 		log.info("indexList......");
 
 	}
+	
+	@GetMapping("/")
+	public String home() {
+		log.info("index... start");
+		log.info("indexList......");
+		
+		return "/index";
+	}
 
 	@GetMapping("/innerPage")
 	public void innerPage() {

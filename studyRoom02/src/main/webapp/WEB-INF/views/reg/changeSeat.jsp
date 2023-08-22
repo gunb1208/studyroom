@@ -9,9 +9,6 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		</div>
-		<div class="home_content">
-			<h1>좌석 이용/변경</h1>
-		</div>
 	</div>
 
 	<!-- News -->
@@ -19,7 +16,12 @@
 	<div class="news">
 		<form method="post">
 		<div class="container">
-			<div class="d-flex justify-content-center mb-3"><h1>고정석</h1></div>
+		
+		<div class="d-flex justify-content-center text-warning mb-5">
+			<h1>좌석 이용/변경</h1>
+		</div>
+		
+			<div class="d-flex justify-content-center mt-5"><h2>고정석</h2></div>
 			
             <div class="mb-3">
             	<c:forEach items="${regList}" var="reg">
@@ -215,7 +217,7 @@
 				</div> <!-- end row -->
 	
 				<!-- 자유석 -->
-				<div class="d-flex justify-content-center mt-5"><h1>자유석</h1></div>
+				<div class="d-flex justify-content-center mt-5"><h2>자유석</h2></div>
 				<div id="room3" class="border px-5 py-5 mr-3 mt-3">
 					<div class="card-deck">
 						<c:forEach items="${seatList}" var="seat" begin="20" end="27">

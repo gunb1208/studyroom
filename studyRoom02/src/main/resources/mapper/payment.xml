@@ -21,4 +21,8 @@
 		WHERE FNO= #{fno}
 	</select>
 	
+	<delete id="delete">
+		DELETE FROM PAYMENT WHERE USERNO = ${userNo}
+	</delete>
+	
 </mapper>

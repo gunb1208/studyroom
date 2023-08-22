@@ -80,12 +80,12 @@
 						
 						
 						<div class="col-12 text-right">
-							<sec:authorize access="!hasRole('ROLE_ADMIN')">
+							<c:if test="${memberAuth ne 'ROLE_ADMIN'}">
 								<c:set var="adm" value="0" />
-							</sec:authorize>
-							<sec:authorize access="hasRole('ROLE_ADMIN')">
+							</c:if>
+							<c:if test="${memberAuth eq 'ROLE_ADMIN'}">
 								<c:set var="adm" value="1" />
-							</sec:authorize>
+							</c:if>
 							<c:if test="${ (adm == 1 && pageMaker.cri.category == 1 ) || (pageMaker.cri.category != 1)}">
 								<a href="${pageContext.request.contextPath}/board/register?category=${pageMaker.cri.category}"id='regBtn' class="write btn btn-sm btn-outline-warning">글쓰기</a>
 							</c:if>

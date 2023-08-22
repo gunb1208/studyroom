@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myproject.domain.BoardDomain;
@@ -35,38 +36,71 @@ public class BoardController {
 		model.addAttribute("pageMaker1", new PageDTO(service.getNoticeTotalCount(cri), cri));
 		model.addAttribute("pageMaker2", new PageDTO(service.getQATotalCount(cri), cri));
 		log.warn("category : " + cri.getCategory());
-		//model.addAttribute("category", cri.getCategory());
 	}
 	
 	@GetMapping("/register")
-//	@PreAuthorize("isAuthenticated()")
-	public void register(Integer category, Integer parentNo, Model model) { // parentNo -> Integer
+	public String register(Integer category, Integer parentNo, Model model,
+			@SessionAttribute(name = "memberId", required = false) String userId) { // parentNo -> Integer
 		//bno -> ?
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
 		log.warn(parentNo);
 		model.addAttribute("board", parentNo != null ? service.get(parentNo) : null);
 		model.addAttribute("category", category);
+		
+		return "board/register";
 	}
 	
 	@PostMapping("/register")
-	public String register(BoardDomain board, RedirectAttributes rttr) {
+	public String register(BoardDomain board, RedirectAttributes rttr,
+			@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
 		log.warn("register : " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
+		
 		return "redirect:/board/list?category=" +board.getCategory();
-		//return null;
 	}
 	
 	
-	@GetMapping({"/get", "/modify"})
+	@GetMapping("/get")
 	public void get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
 		model.addAttribute("cri",cri);
 	}
 	
+	@GetMapping("/modify")
+	public String modify(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model,
+			@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
+		log.info("/get or modify");
+		model.addAttribute("board", service.get(bno));
+		model.addAttribute("cri",cri);
+		
+		return "board/modify";
+	}
+	
 	
 	@PostMapping("/modify")
-	public String modify(BoardDomain board, RedirectAttributes rttr, @ModelAttribute("cri") Criteria cri) {
+	public String modify(BoardDomain board, RedirectAttributes rttr, @ModelAttribute("cri") Criteria cri,
+			@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
 		log.info("modify : " + board);
 		
 		if(service.modify(board)) {
@@ -76,7 +110,13 @@ public class BoardController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr,
+			@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+		
 		log.info("remove : " + bno);
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "sucess");

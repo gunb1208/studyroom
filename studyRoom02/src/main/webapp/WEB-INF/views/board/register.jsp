@@ -35,7 +35,6 @@
            					</div>
            					<input type="hidden" name="parentNo" value="${board.bno}">
            					<input type="hidden" name="category" value="${category}">  
-           					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
            					<a href="list${cri.listLink}" data-opper='list' class="btn btn-sm btn-outline-secondary float-right mt-1">목록</a>
            					<button type="submit" class="btn btn-sm btn-outline-warning float-right mr-1 mt-1" id="register">완료</button>
            					<button type="reset" class="btn btn-sm btn-outline-danger float-right mr-1 mt-1">초기화</button>

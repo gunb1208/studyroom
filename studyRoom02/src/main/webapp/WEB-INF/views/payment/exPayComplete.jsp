@@ -6,9 +6,6 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url(${pageContext.request.contextPath}/resources/images/news_background.jpg)"></div>
 		</div>
-		<div class="home_content">
-			<h1>연장 완료</h1>
-		</div>
 	</div>
 
 	<!-- News -->
@@ -16,7 +13,7 @@
 		<div class="container my-5">
 			<div class="card">
 				<div class="card-header bg-light text-dark">
-				<p>좌석 연장이 완료되었습니다.</p>
+				<h2>좌석 연장이 완료되었습니다.</h2>
 				</div>
 				<%-- <p>${paymentDomain}<p><br>
 				<p>${regInfoDomain}<p> --%>

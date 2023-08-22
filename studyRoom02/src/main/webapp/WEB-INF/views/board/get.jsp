@@ -77,20 +77,18 @@
 	       						<div class="ml-2">조회수 : <c:out value="${board.hitCount}"/></div>
 	       					</div>
        					 	<div class="col-4 p-0">
-       					 		<sec:authentication property="principal" var="pinfo"/>
-       					 		<sec:authorize access="hasRole('ROLE_ADMIN')">
+       					 		<c:set var="pinfo" value="${memberName}" />
+       					 		<c:if test="${memberAuth eq 'ROLE_ADMIN'}">
 									<c:set var="adm" value="1" />
-								</sec:authorize>
+								</c:if>
 								<h6 class="float-right ml-2"><a href="list${cri.listLink}">목록<i class="fas fa-tasks"></i></a></h6>
 	       					 	<c:if test="${(board.category != 1) && (adm == 1) && (board.parentNo == 0)}">
 		       					 	<h6 class="float-right"><a href="register?category=2&parentNo=${board.bno}">답변하기</a></h6>
 	       					 	</c:if>
-	       					 	<sec:authorize access="isAuthenticated()"> 
-       					 		<c:if test="${(pinfo.vo.userId == board.writer) || (adm == 1)}">
+       					 		<c:if test="${(pinfo == board.writer) || (adm == 1)}">
 		                    		<h6 class="float-right ml-2"><a href="modify${cri.listLink}&bno=${board.bno}">수정<i class="far fa-edit mr-2 ml-1"></i></a></h6>
 		                    		<h6 class="float-right ml-2"><a href="#" onclick="chk_form()">삭제<i class="far fa-trash-alt mr-2 ml-1"></i></a></h6>
 		                    	</c:if>
-		                    	</sec:authorize>
 							</div>
            				</div>
 				</div>
@@ -102,6 +100,7 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/reply.js"></script>
 <script>
+
 
 	function chk_form() {
 		if (confirm("게시글을 삭제하시겠습니까?") == true){    

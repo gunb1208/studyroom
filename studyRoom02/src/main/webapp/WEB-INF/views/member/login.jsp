@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../includes/header_.jsp" />
 	<!-- Home -->
 
@@ -32,12 +33,22 @@
 			                </td>
 			            </tr>
 			        </table>
+			        
 			        <div id="naver_id_login" style="text-align:center"><a href="${url}">
 					<img src="${pageContext.request.contextPath}/resources/images/btnG_perfect.png"/></a></div>
 					<br>
-			        <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
+					
+			            <div class="d-flex justify-content-center text-danger my-2">
+			            	<c:if test="${not empty bindingResult}">
+						        <ul>
+						            <c:forEach items="${bindingResult.allErrors}" var="error">
+						                <li>${error.defaultMessage}</li>
+						            </c:forEach>
+						        </ul>
+					    	</c:if>
+			            </div>
 			    </form>
-			    <p class="mediuen">YS독서실에 가입하고 여러 혜택을 누리시겠습니까? <a href="${pageContext.request.contextPath}/member/terms">회원가입 하기</a></p>
+			    <p class="mediuen text-center">YS독서실에 가입하고 여러 혜택을 누리시겠습니까? <a href="${pageContext.request.contextPath}/member/terms">회원가입 하기</a></p>
 		    </div>
 		</div>
 	</div>

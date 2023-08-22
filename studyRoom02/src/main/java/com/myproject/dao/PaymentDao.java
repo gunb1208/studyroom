@@ -12,4 +12,6 @@ public interface PaymentDao {
 	
 	FeeDomain selectFee(Integer fno);
 	
+	void delete(int userNo);
+	
 }
