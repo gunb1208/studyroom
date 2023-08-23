@@ -29,7 +29,7 @@
     
     <!-- 회원가입 -->
     <insert id="insert">
-    	INSERT INTO MEMBER (USERNO, USERID, USERPW, USERNAME, TEL, EMAIL) VALUES (SEQ_MEMBER.NEXTVAL, #{userId}, #{userPw}, #{userName}, #{tel}, #{email})
+    	INSERT INTO MEMBER (USERNO, USERID, USERPW, USERNAME, TEL, EMAIL, ENABLED) VALUES (SEQ_MEMBER.NEXTVAL, #{userId}, #{userPw}, #{userName}, #{tel}, #{email}, 1)
     </insert>
     
     <!-- 아이디 중복체크 -->

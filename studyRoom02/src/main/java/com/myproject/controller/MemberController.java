@@ -102,7 +102,7 @@ public class MemberController {
 			return "redirect:/index";
 		}
 		
-		return "/index";
+		return "member/join";
 	}
 	
 	@PostMapping("/join")
