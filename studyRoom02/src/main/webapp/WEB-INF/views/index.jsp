@@ -54,7 +54,7 @@
 					<div class="hero_slide_background" style="background-image:url(${pageContext.request.contextPath}/resources/images/slider_background.jpg)"></div>
 					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">마음먹음을 실천할 수 있는 공간</h1>
+							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut" class="indexTxt">마음먹음을 실천할 수 있는 공간</h1>
 						</div>
 					</div>
 				</div>
@@ -64,7 +64,7 @@
 					<div class="hero_slide_background" style="background-image:url(${pageContext.request.contextPath}/resources/images/slider_background.jpg)"></div>
 					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">모든 이들의 마음먹음을 지지합니다.</h1>
+							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut" class="indexTxt">모든 이들의 마음먹음을 지지합니다.</h1>
 						</div>
 					</div>
 				</div>
@@ -234,7 +234,7 @@
 		      <img class="d-block w-100" src="${pageContext.request.contextPath}/resources/images/Index_slide_1.jpg" alt="First slide">
 		        <div class="carousel-caption d-none d-md-block">
 				    <h1>YS독서실은</h1>
-				    <h2>회원제로 운영되는 독서실입니다.<br>고정 20석, 자유 20석 총 40개의 좌석과 16개의 사물함이 마련되어있습니다.</h2>
+				    <h2>회원제로 운영되는 독서실입니다.<br>고정 20석, 자유 20석 총 40개의 좌석이 마련되어있습니다.</h2>
 				</div>
 		    </div>
 		    <div class="carousel-item">
@@ -364,5 +364,11 @@
 
 			
 <jsp:include page="./includes/footer.jsp" />
+
+<style>
+	 .indexTxt {
+	 text-shadow: 5px 5px 5px #000;
+	 }
+</style>
 			
 

@@ -36,7 +36,7 @@ public class TmpRegCheckTask {
 			SeatDomain seatDomain = new SeatDomain();
 			seatDomain.setSno(tmp.getSeatNo());
 			seatDomain.setStatus(false);
-			seatDomain.setUserNo(null);
+			seatDomain.setUserNo((Integer) null);
 			seatMapper.updateStatus(seatDomain);
 			
 		}

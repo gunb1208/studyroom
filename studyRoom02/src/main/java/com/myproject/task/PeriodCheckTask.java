@@ -37,7 +37,7 @@ public class PeriodCheckTask {
 			SeatDomain seatDomain = new SeatDomain();
 			seatDomain.setSno(vo.getSeatNo());
 			seatDomain.setStatus(false);
-			seatDomain.setUserNo(null);
+			seatDomain.setUserNo((Integer) null);
 			
 			seatMapper.updateStatus(seatDomain);
 			log.warn(seatDomain);

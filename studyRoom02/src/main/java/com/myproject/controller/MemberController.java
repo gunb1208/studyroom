@@ -41,8 +41,12 @@ public class MemberController {
 	}
 	
 	@GetMapping("login")
-	public void loginInput(){
+	public String loginInput(@SessionAttribute(name = "member", required = false) MemberDomain memberDomain){
+		if(memberDomain != null) {
+			return "/index";
+		}
 		
+		return "/member/login";
 	}
 	
 	@PostMapping("login")
@@ -74,6 +78,7 @@ public class MemberController {
 		session.setAttribute("memberNo", memberDomain.getUserNo());
 		session.setAttribute("memberAuth", memberAuth);
 		
+		log.info(memberAuth);
 		
 		return "redirect:/index";
 	}
@@ -92,8 +97,12 @@ public class MemberController {
 	}
 	
 	@GetMapping("/join")
-	public void join() {
+	public String join(@SessionAttribute(name = "memberId", required = false) String userId) {
+		if(userId != null) {
+			return "redirect:/index";
+		}
 		
+		return "/index";
 	}
 	
 	@PostMapping("/join")
@@ -120,8 +129,15 @@ public class MemberController {
 	
 	
 	@GetMapping("pwCheck") 
-	public void getPwCheck() {
+	public String getPwCheck(@SessionAttribute(name = "memberId", required = false) String userId) {
+		
+		if(userId == null) {
+			return "redirect:/member/login";
+		}
+
 		log.info("비밀번호확인......");
+		
+		return "member/pwCheck";
 	}
 	
 	@PostMapping("withdraw")

@@ -45,7 +45,8 @@ public class AdminController {
 	public String getAdmin(Criteria cri, Model model, @SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		log.warn("관리자 페이지");
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
+			log.info(userAuth);
 			return "redirect:/member/login";
 		}
 		
@@ -65,7 +66,7 @@ public class AdminController {
 	public String getSeat(Criteria cri, Model model, @SessionAttribute(name = "memberAuth", required = false) String userAuth) {
 		log.warn("관리자 좌석 관리 페이지..");
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -82,7 +83,7 @@ public class AdminController {
 	@PostMapping("admin_seat")
 	public String postSeat(RegInfoDomain regInfoDomain, Model model, @SessionAttribute(name = "memberAuth", required = false) String userAuth) {
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -100,7 +101,7 @@ public class AdminController {
 	@GetMapping("memberList")
 	public String getMemberList(Criteria cri, Model model, @SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -118,7 +119,7 @@ public class AdminController {
 			@SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		log.warn("회원상세정보 페이지");
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -134,7 +135,7 @@ public class AdminController {
 	public String getMemberContact(Criteria cri, Model model, @SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		log.warn("회원연락" + cri + "페이지");		
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -150,7 +151,7 @@ public class AdminController {
 	public String getPaymentList(Criteria cri, Model model, @SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		log.warn("결제내역 페이지");	
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -169,7 +170,7 @@ public class AdminController {
 	public String getRegProperties(Criteria cri, Model model, @SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		log.warn("등록정보 페이지");			
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -188,7 +189,7 @@ public class AdminController {
 			@SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		log.warn("등록 상세정보 페이지");
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -204,7 +205,7 @@ public class AdminController {
 			@SessionAttribute(name = "memberAuth", required = false) String userAuth) {
 		log.warn("회원 정보를 수정합니다...");
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -219,7 +220,7 @@ public class AdminController {
 			@SessionAttribute(name = "memberAuth", required = false) String userAuth){
 		log.warn("등록 상태를 수정합니다...");
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
@@ -232,7 +233,7 @@ public class AdminController {
 	public String revokeReg(int userNo, @SessionAttribute(name = "memberAuth", required = false) String userAuth) {
 		log.warn("회원 번호:: " + userNo);
 		
-		if(userAuth != "ROLE_ADMIN" || userAuth == null) {
+		if(userAuth == null || userAuth.equals("ROLE_MEMBER")) {
 			return "redirect:/member/login";
 		}
 		
