@@ -11,11 +11,12 @@
 
 ## 2. 사용 기술
 #### `Back-end`
+  - Eclipse
   - Java 17
   - Spring Boot 2.7.14
   - Maven
   - Mybatis
-  - Oracle 11
+  - Oracle 11g xe
 #### `Front-end`
   - JavaScript
   - JSTL
@@ -81,5 +82,119 @@
 
 </br>
 
-## 5. 실행 화면
+## 5. 추가 기능
+
+
+- **회원 관련**
+  - 회원가입, 로그인, 회원탈퇴
+- **좌석 관련**
+  - 좌석 변경
+- **결제/등록 관련**
+  - 이용기간 연장
+- **스케줄러 관련**
+  - 이용기간 만료된 등록정보 삭제
+- **게시판 관련**
+  - 공지사항 게시판 : 비회원도 게시글을 조회할 수 있지만 관리자 권한을 가진 사용자만 게시글 작성, 수정, 삭제 가능
+  - Q&A 게시판 : 비회원도 게시글을 조회할 수 있지만 게시글 작성은 회원만 가능하며 수정, 삭제는 해당 게시글의 회원이름과 세션에 저장된 회원이름이 일치해야 작동함.
+- **관리자 페이지 관련**
+  - 관리자 권한을 가진 사용자만 관리자 페이지에 접근 가능
+  - 전체 회원 정보 조회, 회원에게 연락하기(이메일 발송), 좌석 등록과 취소, 등록정보 관리, 결제정보 조회
+
+</br>
+
+## 6. 핵심 기능 실행 화면
+
+
+### 6.1 회원가입
+
+
+- 6.1.1 약관동의
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/86bf9201-0dba-47e9-a931-9a141f5ecd3c">
+</p>
+
+
+- 6.1.2 회원가입
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/f6224dab-8e8c-4abe-b2af-9a26ccac8b86">
+</p>
+
+
+### 6.2 로그인
+
+
+- 6.2.1 로그인 화면
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/161bfe84-4635-4765-9518-867ea559f8b3">
+</p>
+
+
+- 6.2.2 로그인 실패 화면
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/593728a3-234d-4908-8f7e-e0c99ad33824">
+</p>
+
+
+- 6.2.3 일반 회원 로그인시 nav bar에 회원이름 출력
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/9c0313ba-c7c9-40fc-ac4f-1675caf64afb">
+</p>
+
+
+- 6.2.4 관리자 로그인시 nav bar에 관리자 페이지 링크 출력
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/01d8bfa1-30cc-422b-bd66-9d5ea083e82d">
+</p>
+
+
+### 6.3 좌석등록
+
+
+- 6.3.1 좌석등록 화면
+  - 이미 등록된 좌석들은 노란색, 본인이 등록한 좌석은 파란색으로 표시
+  - 고정석, 자유석 선택 가능
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/869147c0-ed37-4b73-a550-0557fe06792b">
+</p>
+
+
+- 6.3.2 좌석 선택 시 좌석번호 출력
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/ee35ca18-5409-469c-b7fd-828bfcaa493c">
+</p>
+
+
+- 6.3.3 요금제 선택
+  - 결제하기 버튼을 누르는 즉시 해당 좌석의 상태가 '이용중'으로 변경됨과 동시에 임시등록 테이블에 사용자 정보 등록
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/343c8e2f-1cb9-4c81-9143-090a466e2351">
+</p>
+
+
+### 6.4 결제
+
+
+- 6.4.1 결제 정보 출력
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/0716dca7-10bf-43d5-8355-eb4370bc0f9e">
+</p>
+
+
+- 6.4.2 결제 API 호출 (x를 눌러 취소해도 결제완료되도록 구현)
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/b9c131c3-8833-4257-9b11-4c00f588fc2d">
+</p>
+
+
+- 6.4.3 결제 완료 및 등록 완료
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/ebbd3c1c-1478-4eb6-aa8d-af176ebad526">
+</p>
+
+
+- 6.4.4 좌석 등록화면에서 파란색으로 표시
+<p align="center">
+<img src="https://github.com/gunb1208/studyroom/assets/136543622/2358a899-6938-4e6f-927b-26521ccba89a">
+</p>
+
 
