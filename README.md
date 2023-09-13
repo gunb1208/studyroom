@@ -63,7 +63,7 @@
 
 ### 4.3 Controller
 ![3](https://github.com/gunb1208/studyroom/assets/136543622/efcebca8-a5cb-45a5-ac0a-b6f61dc25ffe)
-- **요청 처리** :pushpin: [코드 확인](https://github.com/Integerous/goQuality/blob/b2c5e60761b6308f14eebe98ccdb1949de6c4b99/src/main/java/goQuality/integerous/controller/PostRestController.java#L55)
+- **요청 처리** :pushpin: [코드 확인](https://github.com/gunb1208/studyroom/blob/f515770fed8bb205eb4d8a8f10614f0442f7007c/studyRoom02/src/main/java/com/myproject/controller/PaymentController.java#L50)
   - 사용자로부터 호출을 받은 Controller가 Service를 요청합니다.
 
 
