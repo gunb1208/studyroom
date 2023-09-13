@@ -9,7 +9,7 @@
 		<selectKey keyProperty="regNo" order="BEFORE" resultType="int">
 			SELECT SEQ_REGINFO.NEXTVAL FROM DUAL
 		</selectKey>
-    	INSERT INTO REGINFO (REGNO, USERNO, USERNAME, FNO, SEATNO, FEENAME, STARTDATE, ENDDATE) <!-- jsp에서 받은 값 -->
+    	INSERT INTO REGINFO (REGNO, USERNO, USERNAME, FNO, SEATNO, FEENAME, STARTDATE, ENDDATE) 
     	VALUES (#{regNo}, #{userNo}, #{userName}, #{fno}, #{seatNo}, #{feeName}, SYSDATE, SYSDATE + #{period})
 	</insert>
 	
@@ -54,7 +54,6 @@
 		</selectKey>
 	    	INSERT INTO TMP_REG (REGNO, USERNO, USERNAME, FNO, SEATNO) <!-- feeName, period는 payment에서 처리. -->
 	    	VALUES (#{regNo}, #{userNo}, #{userName}, #{fno}, #{seatNo})
-	    
 	</insert>
 	
 	<!-- 임시 테이블 데이터 조회 -->

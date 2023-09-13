@@ -23,7 +23,7 @@ public class TmpRegCheckTask {
 	private SeatDao seatMapper;
 
 	@Transactional
-	@Scheduled(cron="0 10 * * * *")
+	@Scheduled(cron="0 */10 * * * *")
 	public void checkPeriod() throws Exception {
 		
 		log.warn("임시 등록 task 실행...");
@@ -36,7 +36,7 @@ public class TmpRegCheckTask {
 			SeatDomain seatDomain = new SeatDomain();
 			seatDomain.setSno(tmp.getSeatNo());
 			seatDomain.setStatus(false);
-			seatDomain.setUserNo((Integer) null);
+			seatDomain.setUserNo(null);
 			seatMapper.updateStatus(seatDomain);
 			
 		}

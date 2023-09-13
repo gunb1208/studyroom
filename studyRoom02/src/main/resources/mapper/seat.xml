@@ -16,7 +16,7 @@
 	
 	<!-- 좌석 상태 변경 -->
 	<update id="updateStatus">
-		UPDATE SEAT SET STATUS = #{status}, USERNO = #{userNo} WHERE SNO = #{sno}
+		UPDATE SEAT SET STATUS = #{status}, USERNO = #{userNo, jdbcType=VARCHAR} WHERE SNO = #{sno}
 	</update>
 	
 	<!-- 좌석 변경 시 새 좌석 상태를 이용중으로 변경 -->
